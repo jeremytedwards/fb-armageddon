@@ -9,7 +9,7 @@ A fitness tracker based application for gamifying your fitness data
 
   $ mkdir fb-armageddon
   $ git clone https://github.com/jeremytedwards/fb-armageddon.git
-  $ git checkout <day>
+  $ git checkout <feature>
   
 ## Daily:
   1) Go to your root, checkout master

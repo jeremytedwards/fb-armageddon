@@ -1,16 +1,8 @@
 # Local Files
 .DS_Store
-.eslintrc
 .idea/
-
-
-
-# Logs
-logs
-*.log
-
-# Secrets
-githubToken.js
+/data/.keys
+/config/app.json
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git

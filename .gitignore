@@ -3,6 +3,10 @@
 /app.json
 .idea/
 /data/.keys
+<<<<<<< HEAD
+=======
+app.json
+>>>>>>> 8142a23fddd3d31df7e749193d3f2e226de7c05f
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git

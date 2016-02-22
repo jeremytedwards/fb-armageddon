@@ -1,12 +1,12 @@
 var express = require('express');
-var app     = express();
-var config  = require( './config/app.json' );
+var config  = require( './app.json' );
 var fs      = require( 'fs' );
+var app     = express();
 
 var Fitbit  = require( 'fitbit-oauth2' );
 
 // Simple token persist functions.
-//
+
 var tfile = 'fb-token.json';
 var persist = {
     read: function( filename, cb ) {
@@ -30,7 +30,7 @@ var persist = {
 //
 var fitbit = new Fitbit( config.fitbit );
 
-// In a browser, http://localhost:4000/fitbit to authorize a user for the first time.
+// In a browser, http://localhost:3000/fitbit to authorize a user for the first time.
 //
 app.get('/fitbit', function (req, res) {
     res.redirect( fitbit.authorizeURL() );
@@ -40,16 +40,16 @@ app.get('/fitbit', function (req, res) {
 // endpoint is refered to in config.fitbit.authorization_uri.redirect_uri.  See example
 // config below.
 //
-app.get('/fitbit_auth_callback', function (req, res, next) {
+app.get('/fitbit/auth', function (req, res, next) {
     var code = req.query.code;
     fitbit.fetchToken( code, function( err, token ) {
         if ( err ) return next( err );
+        res.redirect( '/fb-profile' );
 
         // persist the token
-        persist.write( tfile, token, function( err ) {
-            if ( err ) return next( err );
-            res.redirect( '/fb-profile' );
-        });
+        // persist.write( tfile, token, function( err ) {
+        //     if ( err ) return next( err );
+        //   });
     });
 });
 
@@ -59,21 +59,23 @@ app.get('/fitbit_auth_callback', function (req, res, next) {
 // and you should persist the new token.
 //
 app.get( '/fb-profile', function( req, res, next ) {
+  console.log('in the fb-profile', res);
     fitbit.request({
-        uri: "https://api.fitbit.com/1/user/-/profile.json",
+        uri: "https://api.fitbit.com/1/user/-/activities/list.json",
         method: 'GET',
     }, function( err, body, token ) {
         if ( err ) return next( err );
-        var profile = JSON.parse( body );
+        var profile = body;
         // if token is not null, a refesh has happened and we need to persist the new token
         if ( token )
             persist.write( tfile, token, function( err ) {
                 if ( err ) return next( err );
-                res.send( '<pre>' + JSON.stringify( profile, null, 2 ) + '</pre>' );
+                    res.send( '<pre>' + JSON.stringify( profile, null, 2 ) + '</pre>' );
             });
         else
             res.send( '<pre>' + JSON.stringify( profile, null, 2 ) + '</pre>' );
     });
 });
 
-app.listen(4000);
+app.listen(3000)
+console.log('server runnning on port 3000');

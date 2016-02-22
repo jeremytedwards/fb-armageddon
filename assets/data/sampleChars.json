@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Garruk",
+    "created": "2016-02-19",
+    "strength": "20",
+    "speed": "9",
+    "stamina": "14",
+    "achievements": [],
+    "users": []
+  },
+  {
+    "name": "Cortana",
+    "created": "2015-05-27",
+    "strength": "12",
+    "speed": "18",
+    "stamina": "15",
+    "achievements": [],
+    "users": []
+  },
+  {
+    "name": "Han Solo",
+    "created": "2016-01-19",
+    "strength": "11",
+    "speed": "21",
+    "stamina": "16",
+    "achievements": [],
+    "users": []
+  },
+  {
+    "name": "Zelda",
+    "created": "2016-02-13",
+    "strength": "14",
+    "speed": "15",
+    "stamina": "14",
+    "achievements": [],
+    "users": []
+  }
+]

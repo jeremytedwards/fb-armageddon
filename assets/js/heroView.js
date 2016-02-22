@@ -3,11 +3,11 @@
   var heroView = {};
 
   heroView.render = function(hero) {
-    $('#head').html('<img src="/images/' + hero.stamina + '-weapon.png" />');
-    $('#torso').html('<img src="/images/' + hero.strength + '-weapon.png" />');
+    $('#head').html('<img src="/images/' + hero.stamina + '-head.png" />');
+    $('#torso').html('<img src="/images/' + hero.strength + '-torso.png" />');
     $('#weapon').html('<img src="/images/' + hero.speed + '-weapon.png" />');
     hero.achievements.forEach(function() {
-      $('#achievements').append('<img src="/images/' + this.achId + '-achievements.png" alt="' + this.achText + '"/>');
+      $('#achievements ul').append('<li><img src="/images/' + this.achId + '-achievements.png" alt="' + this.achText + '"/></li>');
       $('.achlist').append(this.achName + ', ');
     });
     $('.stats li:first').text(hero.stamina);

@@ -26,7 +26,7 @@ var persist = {
     }
 };
 
-// Instanciate a fitbit client.  See example config below.
+// Instantiate a fitbit client.  See example config below.
 //
 var fitbit = new Fitbit( config.fitbit );
 
@@ -37,7 +37,7 @@ app.get('/fitbit', function (req, res) {
 });
 
 // Callback service parsing the authorization token and asking for the access token.  This
-// endpoint is refered to in config.fitbit.authorization_uri.redirect_uri.  See example
+// endpoint is referred to in config.fitbit.authorization_uri.redirect_uri.  See example
 // config below.
 //
 app.get('/fitbit_auth_callback', function (req, res, next) {
@@ -65,7 +65,7 @@ app.get( '/fb-profile', function( req, res, next ) {
     }, function( err, body, token ) {
         if ( err ) return next( err );
         var profile = JSON.parse( body );
-        // if token is not null, a refesh has happened and we need to persist the new token
+        // if token is not null, a refresh has happened and we need to persist the new token
         if ( token )
             persist.write( tfile, token, function( err ) {
                 if ( err ) return next( err );

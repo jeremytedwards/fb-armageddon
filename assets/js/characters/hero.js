@@ -120,25 +120,30 @@
   //Loops through the "users" array for the selected hero and triggers the API calls
   //for updated FitBit data. Returns an array of objects containing active minutes,
   //distance, and steps for each user.
+
   /*
-  Hero.getUserData = function(name) {
-    Hero.outputHero(name);
-
-    console.log(userString);
+  Hero.getUserData = function() {
+    Hero.all.forEach(function(bear) {
+      console.log(bear.users);
+      var userArray = bear.users.split(",");
+      console.log(userArray);
+    });
   };
+  */
 
-
+  /*
   Hero.updateData = function() {
 
   };
 
   Hero.updateLevels = function() {
 
-  };  */
+  };
+  */
 
   //Search SQL table and return as an object in the Hero.all array.
   //
-  Hero.outputHero = function(name) {
+  Hero.outputHero = function(name, callback) {
     webDB.execute(
       [
         {
@@ -149,8 +154,10 @@
       function(rows) {
         Hero.all = []; //Reset Hero.all to an empty array to prevent accumulation of old searches.
         Hero.loadAll(rows);
-      }
-    );
+      })
+      if(callback) {
+        callback();
+      };
   };
 
   //Methods for integrating achievement system.

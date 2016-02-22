@@ -1,0 +1,77 @@
+[
+  {
+    "achId": "0",
+    "achName": "First Swing",
+    "achText": "You took your first swing by leveling your Strength to 1! You might feel sore, but your strength is increasing."
+  },
+  {
+    "achId": "1",
+    "achName": "Cloud Kick",
+    "achText": "You have learned the head-pounding Cloud Kick by leveling your Strength to 5! Your attunement with your body grows."
+  },
+  {
+    "achId": "2",
+    "achName": "Wild Training",
+    "achText": "You have attained increased awareness of your form by leveling your Strength to 10!"
+  },
+  {
+    "achId": "3",
+    "achName": "Power Slash",
+    "achText": "You have gained the strength to carve up your enemies by leveling your Strength to 15!"
+  },
+  {
+    "achId": "4",
+    "achName": "Maul",
+    "achText": "You have mastered the art of reducing your opponents to ruin by leveling your Strength to maximum (20)!"
+  },
+  {
+    "achId": "5",
+    "achName": "First Lap",
+    "achText": "You took your first lap by leveling your Speed to 1! You're tired now, but it will get easier. Keep at it!"
+  },
+  {
+    "achId": "6",
+    "achName": "Ursine Concourse",
+    "achText": "You have forayed into bear racing. Your Speed has leveled to 5!"
+  },
+  {
+    "achId": "7",
+    "achName": "Predator's Pursuit",
+    "achText": "Catching prey has become easier as your body has grown leaner and faster. You've leveled your Speed to 10!"
+  },
+  {
+    "achId": "8",
+    "achName": "Ursine Ultra",
+    "achText": "You won your first bear race! You've leveled your speed to 15!"
+  },
+  {
+    "achId": "9",
+    "achName": "Victory Lap",
+    "achText": "You have blazed a path around your opponents by leveling your Speed to maximum (20)!"
+  },
+  {
+    "achId": "10",
+    "achName": "First Stand",
+    "achText": "You took your first stand by leveling your Stamina to 1! Don't worry, it gets easier."
+  },
+  {
+    "achId": "11",
+    "achName": "Circus Trick",
+    "achText": "You stood to juggle for an audience by leveling your Stamina to 5!"
+  },
+  {
+    "achId": "12",
+    "achName": "Deepwater Diver",
+    "achText": "You held your breath and caught salmon by leveling your Stamina to 10!"
+  },
+  {
+    "achId": "13",
+    "achName": "Battle Hardy",
+    "achText": "You are ready to endure ferocious battles. Your Stamina is level 15!"
+  },
+  {
+    "achId": "14",
+    "achName": "Circus Breakout",
+    "achText": "You broke out of the circus by leveling your Stamina to maximum (20)! You are now ruler of the wilds!"
+  },
+]

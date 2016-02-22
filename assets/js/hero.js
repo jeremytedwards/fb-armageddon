@@ -33,6 +33,26 @@
     );
   }
 
+  Hero.prototype.loadHero = function(id) {
+    webDB.execute(
+      [
+        {
+          'sql': 'SELECT * FROM heroes', function(rows) {
+            if (rows.length) {
+
+            } else {
+              **API CALL**
+              **FUNCTION TO PARSE API DATA**
+              API DATA.forEach(function(hero) {
+                Hero.saveHero();
+              })
+            }
+          }
+        }
+      ]
+    )
+  }
+
   Hero.prototype.updateHero = function() {
     webDB.execute(
       [

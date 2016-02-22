@@ -15,6 +15,15 @@
     $('.stats li:third').text(hero.speed);
   };
 
+  heroView.populateList = function() {
+    Hero.all.forEach(function(hero) {
+      $('#herolist').append('<li><a href="#">' + hero.name + '</a></li>');
+      $('#herolist li').on('click', function() {
+        Hero.loadHero(hero);
+      })
+    });
+  }
+
   heroView.wipe = function() {
     $('#head').html('');
     $('#torso').html('');

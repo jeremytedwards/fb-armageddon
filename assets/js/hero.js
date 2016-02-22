@@ -33,6 +33,17 @@
     );
   }
 
+  Hero.prototype.updateHero = function() {
+    webDB.execute(
+      [
+        {
+          'sql': 'UPDATE heroes SET name = ?, created = ?, strength = ?, speed = ?, stamina = ?, achievements = ?, users = ? WHERE id = ?;',
+          'data': [this.name, this.created, this.strength, this.speed, this.stamina, this.achievements, this.users, this.id]
+        }
+      ],
+    );
+  }
+
   Hero.prototype.removeHero = function() {
     webDB.execute(
       [
@@ -74,6 +85,21 @@
     if(this.strength > 19) {
       this.achievements.push(Achievements.all[0]);
     }
+    if(this.speed > 0) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.speed > 4) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.speed > 9) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.speed > 14) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.spee > 19) {
+      this.achievements.push(Achievements.all[0]);
+    }
     if(this.stamina > 0) {
       this.achievements.push(Achievements.all[0]);
     }
@@ -87,21 +113,6 @@
       this.achievements.push(Achievements.all[0]);
     }
     if(this.stamina > 19) {
-      this.achievements.push(Achievements.all[0]);
-    }
-    if(this.speed > 0) {
-      this.achievements.push(Achievements.all[0]);
-    }
-    if(this.speed > 4) {
-      this.achievements.push(Achievements.all[0]);
-    }
-    if(this.speed > 9) {
-      this.achievements.push(Achievements.all[0]);
-    }
-    if(this.speed > 14) {
-      this.achievements.push(Achievements.all[0]);
-    }
-    if(this.speed > 19) {
       this.achievements.push(Achievements.all[0]);
     }
   }

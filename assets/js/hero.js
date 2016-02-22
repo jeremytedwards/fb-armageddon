@@ -22,6 +22,29 @@
     );
   };
 
+  Hero.prototype.setLevels = function(object) {
+    var dummyHero = new Hero(object);
+    dummyHero.stamina = (object.activeMinutes / n);
+    if (dummyHero.stamina > 20) {
+      dummyHero.stamina = 20;
+    }
+    dummyHero.stamina = dummyHero.stamina.toFixed(0);
+    console.log("Stamina level " + dummyHero.stamina);
+    dummyHero.strength = (object.distance / n);
+    if (dummyHero.strength > 20) {
+      dummyHero.strength = 20;
+    }
+    dummyHero.strength = dummyHero.strength.toFixed(0);
+    console.log("Strength level " + dummyHero.strength);
+    dummyHero.speed = (object.steps / n);
+    if (dummyHero.speed > 20) {
+      dummyHero.speed = 20;
+    }
+    dummyHero.speed = dummyHero.speed.toFixed(0);
+    console.log("Speed level " + dummyHero.speed);
+    return dummyHero;
+  }
+
   Hero.prototype.saveHero = function() {
     webDB.execute(
       [

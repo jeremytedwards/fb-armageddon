@@ -30,9 +30,9 @@
 									<li class="current"><a href="#hero">Create Hero</a></li>
 
 									<!--TODO: build out this menu item dynamically for each stored character.-->
-									<li>
+									<li class="current">
 										<a href="#hero">Existing Hero</a>
-										<ul>
+										<ul id="herolist">
 											<li><a href="#">Aurthor</a></li>
 											<li><a href="#">Mary</a></li>
 											<li><a href="#">Robin</a></li>
@@ -147,21 +147,23 @@
 										<h2>Hero Section</h2>
 									</header>
 									<div class="row">
+										<div class="8u 12u(mobile)" id="head"></div>
+										<div class="8u 12u(mobile)" id="torso"></div>
+										<div class="8u 12u(mobile)" id="weapon"></div>
 										<div class="8u 12u(mobile)">
 											<section class="box">
-												<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
 												<header>
-													<h3>Ipsum feugiat et dolor</h3>
+													<h3>If we want text beneath the hero</h3>
 												</header>
-												<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit  adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
+												<p>We can add it here.</p>
 												<footer>
 													<a href="#" class="button alt">Find out more</a>
 												</footer>
 											</section>
 										</div>
 										<div class="4u 12u(mobile)">
-											<a href="#" class="button alt">Update Stats</a>
-											<a href="#" class="button alt">Remove Hero</a>
+											<a href="#" class="button alt" id="updBut">Update Stats</a>
+											<a href="#" class="button alt" id="rmhBut">Remove Hero</a>
 											<section class="box">
 												<header>
 													<h3>Your Stats</h3>

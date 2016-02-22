@@ -1,7 +1,5 @@
 (function(module) {
 
-  var hero = {};
-
   Hero.all = [];
 
   function Hero(opts) {
@@ -33,6 +31,79 @@
         }
       ],
     );
+  }
+
+  Hero.prototype.removeHero = function() {
+    webDB.execute(
+      [
+        {
+          'sql': 'DELETE FROM heroes WHERE id = ?;',
+          'data': [this.id]
+        }
+      ],
+    );
+    this.strength = 0;
+    this.speed = 0;
+    this.stamina = 0;
+    this.achievements = [];
+  }
+
+  massacre = function() {
+    webDB.execute(
+      [
+        {
+          'sql': 'drop table heroes;',
+        }
+      ],
+    );
+  }
+
+  Hero.prototype.attachAchievements = function() {
+    if(this.strength > 0) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.strength > 4) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.strength > 9) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.strength > 14) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.strength > 19) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.stamina > 0) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.stamina > 4) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.stamina > 9) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.stamina > 14) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.stamina > 19) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.speed > 0) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.speed > 4) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.speed > 9) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.speed > 14) {
+      this.achievements.push(Achievements.all[0]);
+    }
+    if(this.speed > 19) {
+      this.achievements.push(Achievements.all[0]);
+    }
   }
 
 module.heroView = heroView;

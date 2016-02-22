@@ -1,6 +1,6 @@
 (function(module) {
 
-  function Achievement (id, name) {
+  function Achievement (id, name, earned) {
     this.achId = id;
     this.achName = name;
   }
@@ -14,6 +14,10 @@
         Achievement.all.push(achievement);
       });
     }
+  }
+
+  attachAchievements = function(hero) {
+
   }
 
 module.achievements = achievements;

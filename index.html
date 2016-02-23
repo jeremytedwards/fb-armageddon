@@ -29,18 +29,6 @@
 								<ul>
 									<li class="current"><a href="#intro">Learn More</a></li>
 									<li class="current"><a href="#hero">Create Hero</a></li>
-
-									<!--TODO: build out this menu item dynamically for each stored character.-->
-									<li class="current">
-										<a href="#hero">Existing Hero</a>
-										<ul id="herolist">
-											<li><a href="#">Aurthor</a></li>
-											<li><a href="#">Mary</a></li>
-											<li><a href="#">Robin</a></li>
-											<li><a href="#">Superman</a></li>
-										</ul>
-									</li>
-
 									<li class="current"><a href="#contact">Contact</a></li>
 								</ul>
 							</nav>
@@ -152,18 +140,20 @@
 										<h2>Hero Section</h2>
 									</header>
 									<div class="row">
-										<div class="8u 12u(mobile)" id="head"></div>
-										<div class="8u 12u(mobile)" id="torso"></div>
-										<div class="8u 12u(mobile)" id="weapon"></div>
 										<div class="8u 12u(mobile)">
 											<section class="box">
-												<header>
-													<h3>If we want text beneath the hero</h3>
-												</header>
-												<p>We can add it here.</p>
-												<footer>
-													<a href="#" class="button alt">Find out more</a>
-												</footer>
+												<section class="herocontainer">
+													<div class="8u 12u(mobile) bearhead" id="bearhead"></div>
+													<div class="8u 12u(mobile) torso" id="torso"></div>
+													<div class="8u 12u(mobile) weapon" id="weapon"></div>
+													<section class="bottomhero">
+														<header>
+															<h3>If we want text beneath the hero</h3>
+														</header>
+														<section id="herolist" class="list-sec"></section>
+														<p>We can add it here.</p>
+													</section>
+												</section>
 											</section>
 										</div>
 										<div class="4u 12u(mobile)">
@@ -173,12 +163,13 @@
 												<header>
 													<h3>Your Stats</h3>
 												</header>
-												<section class="stats">
+												<section>
 													<ul>
-														<li>Stamina Placeholder</li>
-														<li>Strength Placeholder</li>
-														<li>Speed Placeholder</li>
+														<li class="stamina">Stamina Placeholder</li>
+														<li class="strength">Strength Placeholder</li>
+														<li class="speed">Speed Placeholder</li>
 													</ul>
+
 												</section>
 												<header>
 													<h3>Achievements</h3>
@@ -186,6 +177,8 @@
 												<section id="achievements">
 													<ul>(Achievement images go here)
 													</ul>
+													<section class="achlist">
+													</section>
 												</section>
 											</section>
 										</div>
@@ -408,13 +401,17 @@
 			<script src="vendor/scripts/webDB.js"></script>
 			<script src="vendor/scripts/page.js"></script>
 			<script src="assets/js/characters/hero.js"></script>
+			<script src="assets/js/achievements.js"></script>
+			<script src="assets/js/characters/heroView.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 
 			<!-- WORKING Area for adding test scripts -->
 			<script>
+				Hero.massacre();
 				Hero.createTable();
-				Hero.fetchHeroes();
+				Hero.populateTable(heroView.populateList);
+				Achievement.loadAchievements();
 			</script>
 
 	</body>

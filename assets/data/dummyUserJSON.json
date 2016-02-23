@@ -1,0 +1,48 @@
+{
+  "best": {
+    "total": {
+      "distance": {
+        "date": "2014-01-21",
+        "value": 7.16973
+      },
+      "floors": {
+        "date": "2013-12-04",
+        "value": 21
+      },
+      "steps": {
+        "date": "2014-01-24",
+        "value": 9269
+      }
+    },
+    "tracker": {
+      "distance": {
+        "date": "2014-01-21",
+        "value": 7.16973
+      },
+      "floors": {
+        "date": "2013-12-04",
+        "value": 21
+      },
+      "steps": {
+        "date": "2014-01-24",
+        "value": 9269
+      }
+    }
+  },
+  "lifetime": {
+    "total": {
+      "activeScore": -1,
+      "caloriesOut": -1,
+      "distance": 138.1,
+      "floors": 304,
+      "steps": 183887
+    },
+    "tracker": {
+      "activeScore": -1,
+      "caloriesOut": -1,
+      "distance": 138.1,
+      "floors": 304,
+      "steps": 183887
+    }
+  }
+}

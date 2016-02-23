@@ -21,8 +21,7 @@
       'strength INTEGER, ' +
       'speed INTEGER, ' +
       'stamina INTEGER, ' +
-      'achievements ARRAY, ' +
-      'users ARRAY);',
+      'achievements ARRAY);',
       function(result) {
         console.log('Successfully set up Heroes table.', result);
         // if (callback) callback();
@@ -35,8 +34,8 @@
     webDB.execute(
       [
         {
-          'sql': 'INSERT INTO Heroes (charName, created, strength, speed, stamina, achievements, users) VALUES (?, ?, ?, ?, ?, ?, ?);',
-          'data': [this.charName, this.created, this.strength, this.speed, this.stamina, this.achievements, this.users],
+          'sql': 'INSERT INTO Heroes (charName, created, strength, speed, stamina, achievements) VALUES (?, ?, ?, ?, ?, ?);',
+          'data': [this.charName, this.created, this.strength, this.speed, this.stamina, this.achievements],
         }
       ],
       callback
@@ -59,8 +58,8 @@
     webDB.execute(
       [
         {
-          'sql': 'INSERT INTO Heroes (charName, created, strength, speed, stamina, achievements, users) VALUES (?, ?, ?, ?, ?, ?, ?);',
-          'data': [e.charName, e.created, e.strength, e.speed, e.stamina, e.achievements, e.users],
+          'sql': 'INSERT INTO Heroes (charName, created, strength, speed, stamina, achievements) VALUES (?, ?, ?, ?, ?, ?);',
+          'data': [e.charName, e.created, e.strength, e.speed, e.stamina, e.achievements],
         }
       ]
     );
@@ -118,7 +117,8 @@
 
   //Methods for updating Hero data in the SQL table based on FitBit API calls.
 
-  //Pulls the list of users assigned to a particular Hero.
+  //Pulls the list of users assigned to a particular Hero. CONSIDERING REMOVAL
+  /*
   Hero.getUserData = function(name) {
     webDB.execute(
       [
@@ -138,6 +138,7 @@
       }
     );
   };
+  */
 
   //Search SQL table and return as an object in the Hero.all array.
   //

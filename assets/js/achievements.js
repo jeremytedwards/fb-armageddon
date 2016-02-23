@@ -1,21 +1,23 @@
 (function(module) {
 
-  function Achievement (id, name, text) {
-    this.achId = id;
-    this.achName = name;
-    this.achText = text;
-  }
-
   Achievement.all = [];
 
-  function loadAchievements() {
+  function Achievement(opts) {
+    Object.keys(opts).forEach(function(e, index, keys) {
+      this[e] = opts[e];
+    },this);
+  };
+
+  Achievement.loadAchievements = function() {
+    console.log(Achievement.all);
     $.getJSON('/assets/data/achievements.json', function(rawData) {
       rawData.forEach(function(item) {
         var achievement = new Achievement(item);
+        console.log(achievement);
         Achievement.all.push(achievement);
       });
-    }
-  }
+    });
+  };
 
-module.achievements = achievements;
+module.Achievement = Achievement;
 })(window);

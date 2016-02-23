@@ -12,7 +12,7 @@
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS heroes (' +
         'id INTEGER PRIMARY KEY, ' +
-        'name VARCHAR(40) NOT NULL, ' +
+        'charName VARCHAR(40) NOT NULL, ' +
         'created DATETIME, ' +
         'strength INTEGER, ' +
         'speed INTEGER, ' +
@@ -50,7 +50,7 @@
       [
         {
           'sql': 'INSERT INTO heroes (name, created, strength, speed, stamina, achievements, users) VALUES (?, ?, ?, ?, ?, ?, ?);',
-          'data': [this.name, this.created, this.strength, this.speed, this.stamina, this.achievements, this.users],
+          'data': [this.charName, this.created, this.strength, this.speed, this.stamina, this.achievements, this.users],
         }
       ],
     );
@@ -81,7 +81,7 @@
       [
         {
           'sql': 'UPDATE heroes SET name = ?, created = ?, strength = ?, speed = ?, stamina = ?, achievements = ?, users = ? WHERE name = ?;',
-          'data': [hero.name, hero.created, hero.strength, hero.speed, hero.stamina, hero.achievements, hero.users]
+          'data': [hero.charName, hero.created, hero.strength, hero.speed, hero.stamina, hero.achievements, hero.users]
         }
       ],
     );
@@ -92,7 +92,7 @@
       [
         {
           'sql': 'DELETE FROM heroes WHERE name = ?;',
-          'data': [this.name]
+          'data': [this.charName]
         }
       ],
     );

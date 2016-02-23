@@ -9,6 +9,7 @@
   // var hero = {};
 
   Hero.all = [];
+  Hero.users = {};
 
   //Create working SQL table to hold data for our heroes.
   Hero.createTable = function() {
@@ -20,8 +21,7 @@
       'strength INTEGER, ' +
       'speed INTEGER, ' +
       'stamina INTEGER, ' +
-      'achievements ARRAY, ' +
-      'users ARRAY);',
+      'achievements ARRAY);',
       function(result) {
         console.log('Successfully set up Heroes table.', result);
         // if (callback) callback();
@@ -34,8 +34,8 @@
     webDB.execute(
       [
         {
-          'sql': 'INSERT INTO Heroes (charName, created, strength, speed, stamina, achievements, users) VALUES (?, ?, ?, ?, ?, ?, ?);',
-          'data': [this.charName, this.created, this.strength, this.speed, this.stamina, this.achievements, this.users],
+          'sql': 'INSERT INTO Heroes (charName, created, strength, speed, stamina, achievements) VALUES (?, ?, ?, ?, ?, ?);',
+          'data': [this.charName, this.created, this.strength, this.speed, this.stamina, this.achievements],
         }
       ],
       callback
@@ -58,8 +58,8 @@
     webDB.execute(
       [
         {
-          'sql': 'INSERT INTO Heroes (charName, created, strength, speed, stamina, achievements, users) VALUES (?, ?, ?, ?, ?, ?, ?);',
-          'data': [e.charName, e.created, e.strength, e.speed, e.stamina, e.achievements, e.users],
+          'sql': 'INSERT INTO Heroes (charName, created, strength, speed, stamina, achievements) VALUES (?, ?, ?, ?, ?, ?);',
+          'data': [e.charName, e.created, e.strength, e.speed, e.stamina, e.achievements],
         }
       ]
     );
@@ -117,27 +117,26 @@
 
   //Methods for updating Hero data in the SQL table based on FitBit API calls.
 
-  //Loops through the "users" array for the selected hero and triggers the API calls
-  //for updated FitBit data. Returns an array of objects containing active minutes,
-  //distance, and steps for each user.
-
+  //Pulls the list of users assigned to a particular Hero. CONSIDERING REMOVAL
   /*
-  Hero.getUserData = function() {
-    Hero.all.forEach(function(bear) {
-      console.log(bear.users);
-      var userArray = bear.users.split(",");
-      console.log(userArray);
-    });
-  };
-  */
-
-  /*
-  Hero.updateData = function() {
-
-  };
-
-  Hero.updateLevels = function() {
-
+  Hero.getUserData = function(name) {
+    webDB.execute(
+      [
+        {
+          'sql': 'SELECT users FROM Heroes WHERE charName = ?;',
+          'data': [name]
+        }
+      ],
+      function(userData) {
+        console.log(userData);
+        userData.forEach(function(obj) {
+          Hero.users = []; //Resets Hero.users to prevent accumulation of old data.
+          var string = obj.users;
+          Hero.users = string.split(',');
+          console.log(Hero.users);
+        });
+      }
+    );
   };
   */
 
@@ -154,7 +153,8 @@
       function(rows) {
         Hero.all = []; //Reset Hero.all to an empty array to prevent accumulation of old searches.
         Hero.loadAll(rows);
-      })
+        console.log("outputHero complete");
+      });
       if(callback) {
         callback();
       };

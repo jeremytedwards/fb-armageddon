@@ -5,8 +5,7 @@
     "strength": "20",
     "speed": "9",
     "stamina": "14",
-    "achievements": [],
-    "users": []
+    "achievements": []
   },
   {
     "charName": "Cortana",
@@ -14,8 +13,7 @@
     "strength": "12",
     "speed": "18",
     "stamina": "15",
-    "achievements": [],
-    "users": []
+    "achievements": []
   },
   {
     "charName": "Han Solo",
@@ -23,8 +21,7 @@
     "strength": "11",
     "speed": "21",
     "stamina": "16",
-    "achievements": [],
-    "users": []
+    "achievements": []
   },
   {
     "charName": "Zelda",
@@ -32,7 +29,6 @@
     "strength": "14",
     "speed": "15",
     "stamina": "14",
-    "achievements": [],
-    "users": ["kgiff", "VanDam", "Xerxes"]
+    "achievements": []
   }
 ]

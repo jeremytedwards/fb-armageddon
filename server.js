@@ -61,7 +61,7 @@ app.get('/fitbit/auth', function (req, res, next) {
 app.get( '/fb-profile', function( req, res, next ) {
   console.log('in the fb-profile', res);
     fitbit.request({
-        uri: "https://api.fitbit.com/1/user/-/activities/date/today.json",
+        uri: "https://api.fitbit.com/1/user/-/activities.json",
         method: 'GET',
     }, function( err, body, token ) {
         if ( err ) return next( err );

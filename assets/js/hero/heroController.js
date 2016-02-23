@@ -2,7 +2,8 @@
     var heroController = {};
 
     heroController.index = function() {
-        console// load navigation
+        console.log('heroController.index called...')
+        // load navigation
 
         // hide arena section
 

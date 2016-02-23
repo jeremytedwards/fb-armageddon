@@ -139,14 +139,6 @@
     );
   };
 
-  //Loops through the "users" array for the selected hero and triggers the API calls
-  //for updated FitBit data. Returns an array of objects containing active minutes,
-  //distance, and steps for each user.
-  Hero.pullData = function() {
-
-  };
-
-
   //Search SQL table and return as an object in the Hero.all array.
   //
   Hero.outputHero = function(name, callback) {

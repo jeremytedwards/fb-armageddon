@@ -28,7 +28,7 @@
 							<nav id="nav">
 								<ul>
 									<li class="current"><a href="#intro">Learn More</a></li>
-									<li class="current"><a href="#hero">Create Hero</a></li>
+									<li class="current"><a href="/hero">Create Hero</a></li>
 
 									<!--TODO: build out this menu item dynamically for each stored character.-->
 									<li class="current">
@@ -399,23 +399,28 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/skel-viewport.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="vendor/scripts/html5sql.js"></script>
-			<script src="vendor/scripts/webDB.js"></script>
-			<script src="vendor/scripts/page.js"></script>
-			<script src="assets/js/characters/hero.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/skel-viewport.min.js"></script>
+		<script src="assets/js/util.js"></script>
 
-			<!-- WORKING Area for adding test scripts -->
-			<script>
-				Hero.createTable();
-				Hero.fetchHeroes();
-			</script>
+		<script src="vendor/scripts/html5sql.js"></script>
+		<script src="vendor/scripts/webdb.js"></script>
+
+		<script src="assets/js/hero/hero.js"></script>
+
+		<!-- Page | Routing -->
+        <!-- handled by express : server.js -->
+
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
+
+		<!-- WORKING Area for adding test scripts -->
+		<script>
+			Hero.createTable();
+			Hero.fetchHeroes();
+		</script>
 
 	</body>
 </html>

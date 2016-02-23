@@ -9,6 +9,7 @@
   // var hero = {};
 
   Hero.all = [];
+  Hero.users = {};
 
   //Create working SQL table to hold data for our heroes.
   Hero.createTable = function() {
@@ -117,29 +118,34 @@
 
   //Methods for updating Hero data in the SQL table based on FitBit API calls.
 
+  //Pulls the list of users assigned to a particular Hero.
+  Hero.getUserData = function(name) {
+    webDB.execute(
+      [
+        {
+          'sql': 'SELECT users FROM Heroes WHERE charName = ?;',
+          'data': [name]
+        }
+      ],
+      function(userData) {
+        console.log(userData);
+        userData.forEach(function(obj) {
+          Hero.users = []; //Resets Hero.users to prevent accumulation of old data.
+          var string = obj.users;
+          Hero.users = string.split(',');
+          console.log(Hero.users);
+        });
+      }
+    );
+  };
+
   //Loops through the "users" array for the selected hero and triggers the API calls
   //for updated FitBit data. Returns an array of objects containing active minutes,
   //distance, and steps for each user.
-
-  /*
-  Hero.getUserData = function() {
-    Hero.all.forEach(function(bear) {
-      console.log(bear.users);
-      var userArray = bear.users.split(",");
-      console.log(userArray);
-    });
-  };
-  */
-
-  /*
-  Hero.updateData = function() {
+  Hero.pullData = function() {
 
   };
 
-  Hero.updateLevels = function() {
-
-  };
-  */
 
   //Search SQL table and return as an object in the Hero.all array.
   //
@@ -154,7 +160,8 @@
       function(rows) {
         Hero.all = []; //Reset Hero.all to an empty array to prevent accumulation of old searches.
         Hero.loadAll(rows);
-      })
+        console.log("outputHero complete");
+      });
       if(callback) {
         callback();
       };

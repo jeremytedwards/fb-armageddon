@@ -46,10 +46,12 @@ app.get('/fitbit/auth', function (req, res, next) {
         if ( err ) return next( err );
         res.redirect( '/fb-profile' );
 
+        // TODO: this errors - TypeError: self.persist is not a function
         // persist the token
-        // persist.write( tfile, token, function( err ) {
-        //     if ( err ) return next( err );
-        //   });
+        //persist.write( tfile, token, function( err ) {
+        //    if ( err ) return next( err );
+        //    res.redirect( '/fb-profile' );
+        //});
     });
 });
 

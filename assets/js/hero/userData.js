@@ -25,12 +25,23 @@
   };
 
   //Inserts new FitBit users and their data into the SQL table when we make an API call.
-  UserData.addUsers = function(obj) {
+  UserData.addToTable = function(obj) {
     webDB.execute(
       [
         {
           'sql': 'INSERT INTO UserData (heroID, userID, caloriesOut, distance, floors, steps) VALUES (?, ?, ?, ?, ?, ?);',
           'data': [obj.heroID, obj.userID, obj.caloriesOut, obj.distance, obj.floors, obj.steps],
+        }
+      ]
+    );
+  };
+
+  UserData.deleteFromTable = function(name) {
+    webDB.execute(
+      [
+        {
+          'sql': 'DELETE FROM UserData WHERE heroID = ?;',
+          'data': [localStorage.heroName]
         }
       ]
     );
@@ -48,7 +59,9 @@
         UserData.lifetime.heroID = localStorage.heroName;
       })
       .done(function() {
-        UserData.addUsers(UserData.lifetime);
+        //May need to add a record deletion function call here to prevent this
+        //table from accumulating old data.
+        UserData.addToTable(UserData.lifetime);
       });
     });
   }

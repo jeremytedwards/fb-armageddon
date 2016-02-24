@@ -126,7 +126,7 @@
   };
 
   Hero.populateTable = function(callback) {
-    if(!localStorage.tableCheck) {     
+    if(!localStorage.tableCheck) {
       webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
         $.getJSON('assets/data/charModel.json', function(rawData) {
           rawData.forEach(function(item) {

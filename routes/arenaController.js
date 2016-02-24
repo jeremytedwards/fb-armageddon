@@ -3,7 +3,6 @@
 
     arenaController.index = function() {
         console.log("arenaController called...");
-        // set navigation
 
         // set hero section
 

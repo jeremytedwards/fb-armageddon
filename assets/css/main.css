@@ -164,6 +164,11 @@
 		width: 100%;
 	}
 
+	.stathead {
+		font-weight: bold;
+		font-size: 1.6em;
+	}
+
 	@media screen and (min-width: 737px) {
 
 		.container.\31 25\25 {
@@ -1965,6 +1970,7 @@
 				.bearhead img {
 					position: absolute;
 					z-index: 2;
+					left: 0;
 					width: 100%;
 				}
 

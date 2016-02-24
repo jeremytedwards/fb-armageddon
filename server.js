@@ -5,8 +5,6 @@ var express = require('express'),
     port    = process.env.PORT || 3000,
     app     = express();
 
-var Fitbit  = require( 'fitbit-oauth2' );
-
 // Simple token persist functions.
 //
 var tfile = 'fb-token.json';
@@ -46,12 +44,11 @@ app.get('/fitbit/auth', function (req, res, next) {
     var code = req.query.code;
     fitbit.fetchToken( code, function( err, token ) {
         if ( err ) return next( err );
-
-        // persist the token
         persist.write( tfile, token, function( err ) {
             if ( err ) return next( err );
             res.redirect( '/fb-profile' );
         });
+
     });
 });
 
@@ -78,15 +75,13 @@ app.get( '/fb-profile', function( req, res, next ) {
     });
 });
 
-
 app.use(express.static('./'));
 
-
 app.get('*', function(request, response) {
-  console.log('New request:', request.url);
-  response.sendFile('index.html', { root: '.' });
+    console.log('New request:', request.url);
+    response.sendFile('index.html', { root: '.' });
 });
 
 app.listen(port, function() {
-  console.log('Server runnning on port ' + port + '!');
+    console.log('Server started on port ' + port + '!');
 });

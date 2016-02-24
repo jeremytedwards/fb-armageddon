@@ -48,6 +48,10 @@
 		-webkit-text-size-adjust: none;
 	}
 
+	.list-sec {
+		list-style: none;
+	}
+
 /* Box Model */
 
 	*, *:before, *:after {
@@ -55,6 +59,14 @@
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
+
+/* Section Init State
+	.hero {
+		display: none;
+	}
+	.arena {
+		display: none;
+	}*/
 
 /* Video Container */
 	.videoWrapper {
@@ -1896,6 +1908,31 @@
 					margin-left: 0.75em;
 				}
 
+				.herocontainer {
+					position: relative;
+				}
+
+				.bearhead img {
+					position: absolute;
+					z-index: 2;
+				}
+
+				.torso img {
+    			position: absolute;
+					top: 338px;
+				}
+
+				.weapon img {
+    			position: absolute;
+					top: 0px;
+					z-index: 5;
+				}
+
+				.bottomhero {
+					position: absolute;
+					top: 792px;
+				}
+
 		/* Wrappers */
 
 			#header-wrapper {
@@ -1945,7 +1982,7 @@
 				}
 
 					#nav > ul > li > ul {
-						display: none;
+						display: block;
 					}
 
 					#nav > ul > li > a {
@@ -1976,6 +2013,7 @@
 				background-color: rgba(34, 30, 31, 0.98);
 				padding: 1.25em 1.5em 1.25em 1.5em;
 				font-style: italic;
+				height: 700px;
 				min-width: 13em;
 				box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.5);
 				text-align: left;
@@ -2526,9 +2564,9 @@
 
 		/* Nav */
 
-			#nav {
+			/*#nav {
 				display: none;
-			}
+			}*/
 
 		/* Banner */
 

@@ -10,6 +10,7 @@
 
   Hero.all = [];
   Hero.users = {};
+  Hero.menu = [];
 
   //Create working SQL table to hold data for our heroes.
   Hero.createTable = function() {
@@ -23,11 +24,34 @@
       'stamina INTEGER, ' +
       'achievements ARRAY);',
       function(result) {
-        console.log('Successfully set up Heroes table.', result);
+        console.log('Successfully set up Heroes table.');
         // if (callback) callback();
       }
     );
   };
+
+  Hero.prototype.setLevels = function(object) {
+    var dummyHero = new Hero(object);
+    dummyHero.stamina = (object.activeMinutes / n);
+    if (dummyHero.stamina > 20) {
+      dummyHero.stamina = 20;
+    }
+    dummyHero.stamina = dummyHero.stamina.toFixed(0);
+    console.log("Stamina level " + dummyHero.stamina);
+    dummyHero.strength = (object.distance / n);
+    if (dummyHero.strength > 20) {
+      dummyHero.strength = 20;
+    }
+    dummyHero.strength = dummyHero.strength.toFixed(0);
+    console.log("Strength level " + dummyHero.strength);
+    dummyHero.speed = (object.steps / n);
+    if (dummyHero.speed > 20) {
+      dummyHero.speed = 20;
+    }
+    dummyHero.speed = dummyHero.speed.toFixed(0);
+    console.log("Speed level " + dummyHero.speed);
+    return dummyHero;
+  }
 
   //Inserts new heroes into the SQL table .
   Hero.prototype.populateHeroes = function(callback) {
@@ -40,6 +64,7 @@
       ],
       callback
     );
+    console.log("Hero populated.");
   };
 
   //Methods for updating data in the SQL table
@@ -76,13 +101,6 @@
     );
   };
 
-  Hero.clearTable = function(callback) {
-    webDB.execute(
-      'DELETE FROM Heroes;',
-      callback
-    );
-  };
-
   Hero.massacre = function() {
     webDB.execute(
       [
@@ -99,49 +117,30 @@
     Hero.all = rows.map(function(ele) {
       return new Hero(ele);
     });
+    Hero.all.forEach(function(hero) {
+      hero.attachAchievements();
+    })
   };
 
-  Hero.fetchHeroes = function() {
+  Hero.populateTable = function(callback) {
     webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
       $.getJSON('assets/data/charModel.json', function(rawData) {
         rawData.forEach(function(item) {
           var hero = new Hero(item);
+          Hero.menu.push(hero);
+          console.log(hero);
           hero.populateHeroes();
+        })
+      }).done(function() {
+          console.log("Callback is being called now");
+          callback();
         });
-        /*webDB.execute('SELECT * FROM Heroes', function(rows) {
-          Hero.loadAll(rows);
-        }); */
-      });
     });
   };
 
   //Methods for updating Hero data in the SQL table based on FitBit API calls.
 
-  //Pulls the list of users assigned to a particular Hero. CONSIDERING REMOVAL
-  /*
-  Hero.getUserData = function(name) {
-    webDB.execute(
-      [
-        {
-          'sql': 'SELECT users FROM Heroes WHERE charName = ?;',
-          'data': [name]
-        }
-      ],
-      function(userData) {
-        console.log(userData);
-        userData.forEach(function(obj) {
-          Hero.users = []; //Resets Hero.users to prevent accumulation of old data.
-          var string = obj.users;
-          Hero.users = string.split(',');
-          console.log(Hero.users);
-        });
-      }
-    );
-  };
-  */
-
   //Search SQL table and return as an object in the Hero.all array.
-  //
   Hero.outputHero = function(name, callback) {
     webDB.execute(
       [
@@ -162,51 +161,54 @@
 
   //Methods for integrating achievement system.
   Hero.prototype.attachAchievements = function() {
+    var tempArray = [];
     if(this.strength > 0) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[0]);
     }
     if(this.strength > 4) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[1]);
     }
     if(this.strength > 9) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[2]);
     }
     if(this.strength > 14) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[3]);
     }
     if(this.strength > 19) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[4]);
     }
     if(this.stamina > 0) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[5]);
     }
     if(this.stamina > 4) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[6]);
     }
     if(this.stamina > 9) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[7]);
     }
     if(this.stamina > 14) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[8]);
     }
     if(this.stamina > 19) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[9]);
     }
     if(this.speed > 0) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[10]);
     }
     if(this.speed > 4) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[11]);
     }
     if(this.speed > 9) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[12]);
     }
     if(this.speed > 14) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[13]);
     }
     if(this.speed > 19) {
-      this.achievements.push(Achievement.all[0]);
+      tempArray.push(Achievement.all[14]);
     }
+    this.achievements = tempArray;
+    console.log(this.achievements);
   };
 
   module.Hero = Hero;

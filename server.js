@@ -69,7 +69,7 @@ app.get( '/fb-profile', function( req, res, next ) {
         if ( token )
             persist.write( tfile, token, function( err ) {
                 if ( err ) return next( err );
-                    res.send(profile);
+                    res.send( profile );
             });
         else
             res.send( profile );

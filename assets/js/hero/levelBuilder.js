@@ -18,8 +18,8 @@
     webDB.execute(
       [
         {
-          'sql': 'SELECT * FROM UserData;',
-          // 'data': [heroName]
+          'sql': 'SELECT * FROM UserData WHERE heroID = ?;',
+          'data': [localStorage.heroName]
         }
       ],
       function(rows) {
@@ -38,6 +38,7 @@
           console.log('floors', newObj.floors, cur.floors);
           return newObj;
         },{
+          charName: localStorage.heroName,
           caloriesOut: 0,
           distance: 0,
           steps: 0,

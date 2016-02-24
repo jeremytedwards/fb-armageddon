@@ -25,7 +25,7 @@
   };
 
   //Inserts new FitBit users and their data into the SQL table when we make an API call.
-  UserData.addUsers = function(obj) {
+  UserData.addToTable = function(obj) {
     webDB.execute(
       [
         {
@@ -36,7 +36,18 @@
     );
   };
 
-  UserData.fetchJSON = function(uri) {
+  UserData.deleteFromTable = function(name) {
+    webDB.execute(
+      [
+        {
+          'sql': 'DELETE FROM UserData WHERE heroID = ?;',
+          'data': [localStorage.heroName]
+        }
+      ]
+    );
+  };
+
+  UserData.fetchJSON = function() {
     webDB.execute('SELECT * FROM UserData ORDER BY userID ASC', function(rows) {
       $.get('/fb-profile', function(data) {
         UserData.lifetime = {};
@@ -45,23 +56,15 @@
         console.log(userObj);
         console.log(lifetime);
         UserData.lifetime = lifetime;
+        UserData.lifetime.heroID = localStorage.heroName;
       })
       .done(function() {
-        UserData.addUsers(UserData.lifetime);
+        //May need to add a record deletion function call here to prevent this
+        //table from accumulating old data.
+        UserData.addToTable(UserData.lifetime);
       });
     });
   }
-
-  // UserData.logoutFitbit = function(cb) {
-  //   var cookies = document.cookie.split(";");
-  //   for (var i = 0; i < cookies.length; i++) {
-  //   	var cookie = cookies[i];
-  //   	var eqPos = cookie.indexOf("=");
-  //   	var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-  //   	document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  //   }
-  // };
-
 
   UserData.dumpUsers = function() {
     webDB.execute(

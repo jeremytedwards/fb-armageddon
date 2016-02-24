@@ -28,7 +28,9 @@
 							<nav id="nav">
 								<ul>
 									<li class="current"><a href="#intro">Learn More</a></li>
+
 									<li class="current"><a href="#hero">Create Hero</a></li>
+
 									<li class="current"><a href="#contact">Contact</a></li>
 								</ul>
 							</nav>
@@ -392,31 +394,41 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/skel-viewport.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="vendor/scripts/html5sql.js"></script>
-			<script src="vendor/scripts/webDB.js"></script>
-			<script src="vendor/scripts/page.js"></script>
-			<script src="assets/js/characters/hero.js"></script>
-			<script src="assets/js/characters/userData.js"></script>
-			<script src="assets/js/characters/levelBuilder.js"></script>
-			<script src="assets/js/achievements.js"></script>
-			<script src="assets/js/characters/heroView.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/skel-viewport.min.js"></script>
+		<script src="assets/js/util.js"></script>
 
-			<!-- WORKING Area for adding test scripts -->
-			<script>
-				Hero.massacre();
-				Hero.createTable();
-				Hero.populateTable(heroView.populateList);
-				UserData.dumpUsers();
-				UserData.createTable();
-				Achievement.loadAchievements();
-			</script>
+        <!-- Vendor Scripts -->
+        <script src="vendor/scripts/page.js"></script>
+		<script src="vendor/scripts/html5sql.js"></script>
+		<script src="vendor/scripts/webdb.js"></script>
+
+        <!-- Hero Scripts -->
+		<script src="assets/js/hero/hero.js"></script>
+        <!--<script src="assets/js/hero/levelBuilder.js"></script> <-----can this be removed???  -->
+        <script src="assets/js/hero/achievements.js"></script>
+        <script src="assets/js/hero/heroView.js"></script>
+
+		<!-- Page | Routing -->
+        <script src="routes/indexController.js"></script>
+        <script src="routes/heroController.js"></script>
+        <script src="routes/arenaController.js"></script>
+        <script src="routes/routes.js"></script>
+
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
+
+		<!-- WORKING Area for adding test scripts -->
+		<script>
+            Hero.massacre();
+            Hero.createTable();
+            Hero.populateTable(heroView.populateList);
+            UserData.dumpUsers();
+            UserData.createTable();
+            Achievement.loadAchievements();
+		</script>
 
 	</body>
 </html>

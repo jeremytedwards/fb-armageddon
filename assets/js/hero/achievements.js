@@ -6,7 +6,7 @@
     Object.keys(opts).forEach(function(e, index, keys) {
       this[e] = opts[e];
     },this);
-  };
+  }
 
   Achievement.loadAchievements = function() {
     console.log(Achievement.all);

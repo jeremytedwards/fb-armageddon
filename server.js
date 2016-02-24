@@ -1,12 +1,12 @@
-var express = require('express');
-var config  = require( './app.json' );
-var fs      = require( 'fs' );
-var app     = express();
-
-var Fitbit  = require( 'fitbit-oauth2' );
+var express = require('express'),
+    config  = require( './app.json' ),
+    fs      = require( 'fs' ),
+    Fitbit  = require( 'fitbit-oauth2' ),
+    port    = process.env.PORT || 3000,
+    app     = express();
 
 // Simple token persist functions.
-
+//
 var tfile = 'fb-token.json';
 var persist = {
     read: function( filename, cb ) {
@@ -26,30 +26,29 @@ var persist = {
     }
 };
 
-// Instantiate a fitbit client.  See example config below.
+// Instanciate a fitbit client.  See example config below.
 //
 var fitbit = new Fitbit( config.fitbit );
 
-// In a browser, http://localhost:3000/fitbit to authorize a user for the first time.
+// In a browser, http://localhost:4000/fitbit to authorize a user for the first time.
 //
 app.get('/fitbit', function (req, res) {
     res.redirect( fitbit.authorizeURL() );
 });
 
 // Callback service parsing the authorization token and asking for the access token.  This
-// endpoint is referred to in config.fitbit.authorization_uri.redirect_uri.  See example
+// endpoint is refered to in config.fitbit.authorization_uri.redirect_uri.  See example
 // config below.
 //
 app.get('/fitbit/auth', function (req, res, next) {
     var code = req.query.code;
     fitbit.fetchToken( code, function( err, token ) {
         if ( err ) return next( err );
-        res.redirect( '/fb-profile' );
+        persist.write( tfile, token, function( err ) {
+            if ( err ) return next( err );
+            res.redirect( '/fb-profile' );
+        });
 
-        // persist the token
-        // persist.write( tfile, token, function( err ) {
-        //     if ( err ) return next( err );
-        //   });
     });
 });
 
@@ -59,15 +58,13 @@ app.get('/fitbit/auth', function (req, res, next) {
 // and you should persist the new token.
 //
 app.get( '/fb-profile', function( req, res, next ) {
-  console.log('in the fb-profile', res);
     fitbit.request({
-        uri: "https://api.fitbit.com/1/user/-/activities.json",
+        uri: "https://api.fitbit.com/1/user/-/profile.json",
         method: 'GET',
     }, function( err, body, token ) {
         if ( err ) return next( err );
-
         var profile = JSON.parse( body );
-        // if token is not null, a refresh has happened and we need to persist the new token
+        // if token is not null, a refesh has happened and we need to persist the new token
         if ( token )
             persist.write( tfile, token, function( err ) {
                 if ( err ) return next( err );
@@ -78,5 +75,13 @@ app.get( '/fb-profile', function( req, res, next ) {
     });
 });
 
-app.listen(3000)
-console.log('server runnning on port 3000');
+app.use(express.static('./'));
+
+app.get('*', function(request, response) {
+    console.log('New request:', request.url);
+    response.sendFile('index.html', { root: '.' });
+});
+
+app.listen(port, function() {
+    console.log('Server started on port ' + port + '!');
+});

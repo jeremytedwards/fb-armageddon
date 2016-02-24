@@ -60,6 +60,14 @@
 		box-sizing: border-box;
 	}
 
+/* Section Init State
+	.hero {
+		display: none;
+	}
+	.arena {
+		display: none;
+	}*/
+
 /* Video Container */
 	.videoWrapper {
 		position: relative;

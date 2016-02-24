@@ -1,7 +1,7 @@
 var express = require('express'),
-    config  = require( './app.json' ),
+    config  = require( __dirname + '/app.json' ),
     fs      = require( 'fs' ),
-    Fitbit  = require( 'fitbit-oauth2' ),
+    Fitbit  = require( __dirname + '/vendor/fitbit-oauth2' ),
     port    = process.env.PORT || 3000,
     app     = express();
 

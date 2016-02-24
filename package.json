@@ -23,7 +23,6 @@
   "homepage": "https://github.com/jeremytedwards/fb-armageddon#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "fitbit-oauth2": "0.0.1",
     "fs": "0.0.2",
     "simple-oauth2": "^0.5.1"
   }

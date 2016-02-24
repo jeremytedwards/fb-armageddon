@@ -1,0 +1,81 @@
+{
+  "_args": [
+    [
+      "fitbit-oauth2",
+      "/Users/jackbot/codefellows/301/fb-armageddon"
+    ]
+  ],
+  "_from": "fitbit-oauth2@latest",
+  "_id": "fitbit-oauth2@0.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/fitbit-oauth2",
+  "_nodeVersion": "0.10.25",
+  "_npmUser": {
+    "email": "aqpeeb@gmail.com",
+    "name": "aqpeeb"
+  },
+  "_npmVersion": "2.7.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "fitbit-oauth2",
+    "raw": "fitbit-oauth2",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/fitbit-oauth2/-/fitbit-oauth2-0.0.1.tgz",
+  "_shasum": "6c39ed1ddfcf6eea1a2e86036210af0c22028baf",
+  "_shrinkwrap": null,
+  "_spec": "fitbit-oauth2",
+  "_where": "/Users/jackbot/codefellows/301/fb-armageddon",
+  "author": {
+    "name": "Andrew Peebles"
+  },
+  "bugs": {
+    "url": "https://github.com/peebles/fitbit-oauth2/issues"
+  },
+  "dependencies": {
+    "async": "^1.4.2",
+    "moment": "^2.10.6",
+    "request": "^2.61.0",
+    "simple-oauth2": "^0.2.1"
+  },
+  "description": "Fitbit client API for OAuth2",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "6c39ed1ddfcf6eea1a2e86036210af0c22028baf",
+    "tarball": "http://registry.npmjs.org/fitbit-oauth2/-/fitbit-oauth2-0.0.1.tgz"
+  },
+  "gitHead": "e076ea655f23a1c8b754fdd55f85c46f951b58e7",
+  "homepage": "https://github.com/peebles/fitbit-oauth2",
+  "keywords": [
+    "fitbit",
+    "oauth2"
+  ],
+  "license": "ISC",
+  "main": "Fitbit.js",
+  "maintainers": [
+    {
+      "name": "aqpeeb",
+      "email": "aqpeeb@gmail.com"
+    }
+  ],
+  "name": "fitbit-oauth2",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peebles/fitbit-oauth2.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.1"
+}

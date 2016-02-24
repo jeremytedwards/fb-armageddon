@@ -1,6 +1,6 @@
-var express = require( 'express' ),
+var express = require( './node_modules/express' ),
     config  = require( './app.json' ),
-    fs      = require( 'fs' ),
+    fs      = require( './node_modules/fs' ),
     Fitbit  = require( './vendor/fitbit-oauth2' ),
     port    = process.env.PORT || 3000,
     app     = express();

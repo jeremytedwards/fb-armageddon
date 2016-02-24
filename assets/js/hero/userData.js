@@ -36,15 +36,16 @@
     );
   };
 
-  UserData.fetchJSON = function(uri) {
+  UserData.fetchJSON = function() {
     webDB.execute('SELECT * FROM UserData ORDER BY userID ASC', function(rows) {
-      $.getJSON(uri, function(data) {
+      $.getJSON('/fb-profile', function(data) {
         UserData.lifetime = {};
         var userObj = eval(data);
         var lifetime = userObj.lifetime.total;
         console.log(userObj);
         console.log(lifetime);
         UserData.lifetime = lifetime;
+        UserData.lifetime.heroID = localStorage.heroName;
       })
       .done(function() {
         UserData.addUsers(UserData.lifetime);

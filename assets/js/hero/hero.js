@@ -25,7 +25,6 @@
       'achievements ARRAY);',
       function(result) {
         console.log('Successfully set up Heroes table.');
-        // if (callback) callback();
       }
     );
   };
@@ -127,19 +126,22 @@
   };
 
   Hero.populateTable = function(callback) {
-    webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
-      $.getJSON('assets/data/charModel.json', function(rawData) {
-        rawData.forEach(function(item) {
-          var hero = new Hero(item);
-          Hero.menu.push(hero);
-          console.log(hero);
-          hero.populateHeroes();
-        })
-      }).done(function() {
+    if(!localStorage.tableCheck) {     
+      webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
+        $.getJSON('assets/data/charModel.json', function(rawData) {
+          rawData.forEach(function(item) {
+            var hero = new Hero(item);
+            Hero.menu.push(hero);
+            console.log(hero);
+            hero.populateHeroes();
+          })
+        }).done(function() {
+          localStorage.tableCheck = true;
           console.log("Callback is being called now");
           callback();
         });
-    });
+      });
+    }
   };
 
   //Methods for updating Hero data in the SQL table based on FitBit API calls.

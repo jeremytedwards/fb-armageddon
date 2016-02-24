@@ -59,7 +59,7 @@ app.get('/fitbit/auth', function (req, res, next) {
 //
 app.get( '/fb-profile', function( req, res, next ) {
     fitbit.request({
-        uri: "https://api.fitbit.com/1/user/-/profile.json",
+        uri: "https://api.fitbit.com/1/user/-/activities.json",
         method: 'GET',
     }, function( err, body, token ) {
         if ( err ) return next( err );
@@ -68,10 +68,10 @@ app.get( '/fb-profile', function( req, res, next ) {
         if ( token )
             persist.write( tfile, token, function( err ) {
                 if ( err ) return next( err );
-                    res.send( '<pre>' + JSON.stringify( profile, null, 2 ) + '</pre>' );
+                    res.send( profile );
             });
         else
-            res.send( '<pre>' + JSON.stringify( profile, null, 2 ) + '</pre>' );
+            res.send( profile );
     });
 });
 

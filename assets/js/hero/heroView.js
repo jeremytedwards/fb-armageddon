@@ -4,6 +4,7 @@
 
   heroView.render = function() {
     Hero.all.forEach(function(hero) {
+      localStorage.heroName = hero.charName;
       $('#bearhead').html('<img src="/images/' + hero.stamina + '-head.png" />');
       $('#torso').html('<img src="/images/' + hero.strength + '-torso.png" />');
       $('#weapon').html('<img src="/images/' + hero.speed + '-weapon.png" />');

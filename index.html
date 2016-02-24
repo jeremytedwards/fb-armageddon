@@ -448,6 +448,8 @@
 			<script src="vendor/scripts/webDB.js"></script>
 			<script src="vendor/scripts/page.js"></script>
 			<script src="assets/js/characters/hero.js"></script>
+			<script src="assets/js/characters/userData.js"></script>
+			<script src="assets/js/characters/levelBuilder.js"></script>
 			<script src="assets/js/achievements.js"></script>
 			<script src="assets/js/characters/heroView.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
@@ -458,6 +460,8 @@
 				Hero.massacre();
 				Hero.createTable();
 				Hero.populateTable(heroView.populateList);
+				UserData.dumpUsers();
+				UserData.createTable();
 				Achievement.loadAchievements();
 			</script>
 >>>>>>> aec2607e1cfa46441653b8bbba9d29cdb9f14e7d

@@ -38,7 +38,7 @@
 
   UserData.fetchJSON = function(uri) {
     webDB.execute('SELECT * FROM UserData ORDER BY userID ASC', function(rows) {
-      $.getJSON(uri, function(data) {
+      $.get('/fb-profile', function(data) {
         UserData.lifetime = {};
         var userObj = eval(data);
         var lifetime = userObj.lifetime.total;
@@ -51,6 +51,17 @@
       });
     });
   }
+
+  // UserData.logoutFitbit = function(cb) {
+  //   var cookies = document.cookie.split(";");
+  //   for (var i = 0; i < cookies.length; i++) {
+  //   	var cookie = cookies[i];
+  //   	var eqPos = cookie.indexOf("=");
+  //   	var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+  //   	document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  //   }
+  // };
+
 
   UserData.dumpUsers = function() {
     webDB.execute(

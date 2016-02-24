@@ -3,7 +3,6 @@ var express = require('express'),
     fs      = require( 'fs' ),
     Fitbit  = require( 'fitbit-oauth2' ),
     port    = process.env.PORT || 3000,
-    // del = function(req, res) { res.clearCookie('ACCESS_TOKEN'); res.redirect('/'); },
     app     = express();
 
 function persistToken( token, cb ) {
@@ -50,8 +49,18 @@ res.send( '<pre>' + JSON.stringify( profile, null, 2 ) + '</pre>' );
   });
 });
 
-app.get('/fb-logout', del);
+// app.get('/fb-logout', del);
+app.get('/fb-logout',function(req, res){
+    res.redirect('http://www.fitbit.com/logout');
+  });
 
+app.use(express.static('./'));
+
+
+app.get('*', function(request, response) {
+  console.log('New request:', request.url);
+  response.sendFile('index.html', { root: '.' });
+});
 
 app.listen(port, function() {
   console.log('Server runnning on port ' + port + '!');

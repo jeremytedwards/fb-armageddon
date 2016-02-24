@@ -9,7 +9,7 @@
   "_id": "fitbit-oauth2@0.0.1",
   "_inCache": true,
   "_installable": true,
-  "_location": "./vendor/fitbit-oauth2",
+  "_location": "fitbit-oauth2",
   "_nodeVersion": "0.10.25",
   "_npmUser": {
     "email": "aqpeeb@gmail.com",

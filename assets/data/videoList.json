@@ -1,0 +1,22 @@
+[
+  {
+    "vid": 0,
+    "htmlcode": "<iframe width='560' height='315' src='https://www.youtube.com/embed/NgJetx1PjYo?html5=1&autoplay=1' frameborder='0' allowfullscreen></iframe>"
+  },
+  {
+    "vid": 1,
+    "htmlcode": "<iframe width='560' height='315' src='https://www.youtube.com/embed/gzc4fpQzwPw?html5=1&autoplay=1' frameborder='0' allowfullscreen></iframe>"
+  },
+  {
+    "vid": 2,
+    "htmlcode": "<iframe width='560' height='315' src='https://www.youtube.com/embed/58s1AMpBG_0?html5=1&autoplay=1' frameborder='0' allowfullscreen></iframe>"
+  },
+  {
+    "vid": 3,
+    "htmlcode": "<iframe width='560' height='315' src='https://www.youtube.com/embed/EIrsOg9Wqp8?html5=1&autoplay=1' frameborder='0' allowfullscreen></iframe>"
+  },
+  {
+    "vid": 4,
+    "htmlcode": "<iframe width='560' height='315' src='https://www.youtube.com/embed/gSySZ8PxNqM?html5=1&autoplay=1' frameborder='0' allowfullscreen></iframe>"
+  }
+]

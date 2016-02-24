@@ -30,6 +30,9 @@
     );
   };
 
+  //KG - Moved the setLevels functionality to the LevelBuilder object.
+  //I believe this section can be deleted.
+  /*
   Hero.prototype.setLevels = function(object) {
     var dummyHero = new Hero(object);
     dummyHero.stamina = (object.activeMinutes / n);
@@ -52,6 +55,7 @@
     console.log("Speed level " + dummyHero.speed);
     return dummyHero;
   }
+  */
 
   //Inserts new heroes into the SQL table .
   Hero.prototype.populateHeroes = function(callback) {

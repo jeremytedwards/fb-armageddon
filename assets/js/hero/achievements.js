@@ -14,8 +14,8 @@
         var achievement = new Achievement(item);
         Achievement.all.push(achievement);
       });
-    }
-  }
+    });
+  } // end loadAchievements
 
 module.achievements = achievements;
 })(window);

@@ -1,4 +1,5 @@
 var express = require('express');
+var port    = 3000; //process.env.PORT || 3000;
 var config  = require( './app.json' );
 var fs      = require( 'fs' );
 var app     = express();
@@ -46,10 +47,12 @@ app.get('/fitbit/auth', function (req, res, next) {
         if ( err ) return next( err );
         res.redirect( '/fb-profile' );
 
+        // TODO: this errors - TypeError: self.persist is not a function
         // persist the token
-        // persist.write( tfile, token, function( err ) {
-        //     if ( err ) return next( err );
-        //   });
+        //persist.write( tfile, token, function( err ) {
+        //    if ( err ) return next( err );
+        //    res.redirect( '/fb-profile' );
+        //});
     });
 });
 
@@ -78,5 +81,15 @@ app.get( '/fb-profile', function( req, res, next ) {
     });
 });
 
-app.listen(3000)
-console.log('server runnning on port 3000');
+app.use(express.static('./'));
+
+app.get('*', function(request, response) {
+    console.log('New request:', request.url);
+    response.sendFile('index.html', { root: '.' });
+});
+
+
+app.listen(port, function() {
+    console.log('Server started on port ' + port + '!');
+});
+

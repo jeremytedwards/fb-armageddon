@@ -5,10 +5,8 @@
         console.log('arenaController.index called...')
         // load navigation
 
-        // hide hero section
-
-        // show arena section
-
+        // hide hero and show arena section
+        arenaView.render();
     };
 
     arenaController.heroes = [];

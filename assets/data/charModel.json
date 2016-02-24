@@ -4,7 +4,7 @@
     "created": "2016-02-19",
     "strength": "9",
     "speed": "9",
-    "stamina": "14",
+    "stamina": "9",
     "achievements": []
   },
   {
@@ -26,9 +26,9 @@
   {
     "charName": "Zelda",
     "created": "2016-02-19",
-    "strength": "14",
-    "speed": "15",
-    "stamina": "14",
+    "strength": "9",
+    "speed": "2",
+    "stamina": "9",
     "achievements": []
   }
 ]

@@ -9,5 +9,9 @@
       },this);
     };
 
+    Video.hideVidWrapper = function() {
+      $('#videoWrapper').hide();
+    }
+
   module.Video = Video;
 })(window)

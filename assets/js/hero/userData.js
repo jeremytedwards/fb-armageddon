@@ -49,7 +49,7 @@
 
   UserData.fetchJSON = function() {
     webDB.execute('SELECT * FROM UserData ORDER BY userID ASC', function(rows) {
-      $.getJSON('/fb-profile', function(data) {
+      $.get('/fb-profile', function(data) {
         UserData.lifetime = {};
         var userObj = eval(data);
         var lifetime = userObj.lifetime.total;

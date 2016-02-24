@@ -22,7 +22,7 @@
         arenaController.heroes.push(Hero.all[0]);
         heroView.arenaNames(arenaController.heroes[1].charName);
       } else {
-        $('#arenamessage').html('The arena has too many combatants! Please remove one before adding new Heroes to the arena.');
+        $('#centerArena').html('The arena has too many combatants! Please remove one before adding new Heroes to the arena.');
       }
     };
 
@@ -32,7 +32,7 @@
         console.log(s);
         h.level = s;
       })
-      arenaController.heroes.sort(function(a,b) {
+      arenaController.heroes.map(function(a,b) {
         if(a.level > b.level) {
           arenaController.victor = a;
           heroView.coronate(a.charName + ' is the victor.');

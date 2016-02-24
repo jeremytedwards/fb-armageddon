@@ -1,7 +1,7 @@
-var express = require('express'),
+var express = require( 'express' ),
     config  = require( './app.json' ),
     fs      = require( 'fs' ),
-    Fitbit  = require( 'fitbit-oauth2' ),
+    Fitbit  = require( './vendor/fitbit-oauth2' ),
     port    = process.env.PORT || 3000,
     app     = express();
 
@@ -46,10 +46,11 @@ app.get('/fitbit/auth', function (req, res, next) {
         if ( err ) return next( err );
         persist.write( tfile, token, function( err ) {
             if ( err ) return next( err );
-            res.redirect( '/fb-profile' );
+            res.redirect( '/hero' );
         });
 
     });
+
 });
 
 // Call an API.  fitbit.request() mimics nodejs request() library, automatically

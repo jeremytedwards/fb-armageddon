@@ -31,8 +31,6 @@
 
 									<li class="current"><a href="/hero">Create Hero</a></li>
 
-                                    <li class="current"><a href="/arena">Arena</a></li>
-
 									<li class="current"><a href="#contact">Contact</a></li>
 								</ul>
 							</nav>
@@ -65,7 +63,7 @@
 											<header>
 												<h2>What's a Hero?</h2>
 											</header>
-											<p>A Hero is a character whose attributes consist of your and other clan members' Fitbit data. To increase your hero's abilities, recruit members to your Hero's clan.</p>
+											<p>A Hero is a character whose attributes consist of your and other clan members' Fitbit data. To increase your Hero's abilities, recruit members to your Hero's clan.</p>
 										</section>
 									</div>
 
@@ -85,6 +83,7 @@
 										<li><a href="#hero" class="button big">Get Started</a></li>
 										<li><a href="#meet" class="button alt big">Meet the Team</a></li>
 									</ul>
+
 								</footer>
 							</section>
 
@@ -109,12 +108,12 @@
 												<!-- ?html5=1&autoplay=1 -->
 
 												<section id="contestant1" class="contestant">
-
+													Hero 1
 												</section>
 												<section id="centerArena" class="contestant">vs
 												</section>
 												<section id="contestant2" class="contestant">
-
+													Hero 2
 												</section>
 
 												<div id="videoWrapper">
@@ -145,13 +144,6 @@
 													<div class="8u 12u(mobile) bearhead" id="bearhead"></div>
 													<div class="8u 12u(mobile) torso" id="torso"></div>
 													<div class="8u 12u(mobile) weapon" id="weapon"></div>
-													<section class="bottomhero">
-														<header>
-															<h3>If we want text beneath the hero</h3>
-														</header>
-														<section id="herolist" class="list-sec"></section>
-														<p>We can add it here.</p>
-													</section>
 												</section>
 											</section>
 										</div>
@@ -164,11 +156,13 @@
 												</header>
 												<section>
 													<ul>
+														<li class="stathead">Stamina</li>
 														<li class="stamina">Stamina Placeholder</li>
+														<li class="stathead">Strength</li>
 														<li class="strength">Strength Placeholder</li>
+														<li class="stathead">Speed</li>
 														<li class="speed">Speed Placeholder</li>
 													</ul>
-
 												</section>
 												<header>
 													<h3>Achievements</h3>
@@ -178,6 +172,8 @@
 													</ul>
 													<section class="achlist">
 													</section>
+												</section>
+												<section id="herolist" class="list-sec">
 												</section>
 											</section>
 										</div>
@@ -267,12 +263,12 @@
 										<li>
 											<span class="date">Step <strong>1</strong></span>
 											<h3><a href="#">Find a Hero</a></h3>
-											<p>Begin by creating a new hero or by selecting one from the existing pool.</p>
+											<p>Begin by creating a new Hero or selecting one from the existing pool.</p>
 										</li>
 										<li>
 											<span class="date">Step <strong>2</strong></span>
 											<h3><a href="#">Edit your Hero</a></h3>
-											<p>After you've found your hero, start to edit their attributes and sync your Fitbit data.</p>
+											<p>After you've found your Hero, start to edit their attributes and sync your Fitbit data.</p>
 										</li>
 										<li>
 											<span class="date">Step <strong>3</strong></span>
@@ -282,7 +278,7 @@
 										<li>
 											<span class="date">Step <strong>4</strong></span>
 											<h3><a href="#">Save your Hero</a></h3>
-											<p>You've perfected your Hero now save them to the pool of available Hero's.</p>
+											<p>You've perfected your Hero, now save them to the pool of available Heroes.</p>
 										</li>
 										<li>
 											<span class="date">Step <strong>5</strong></span>
@@ -299,8 +295,8 @@
 									</header>
 									<a href="#" class="image featured"><img src="images/fitbit.jpg" alt="" /></a>
 									<p>
-										This is <strong>Fitbit Armageddon</strong> a free, hero driven, team based arena game.
-										Leverage your <a href="http://www.fitbit.com" target="_blank">Fitbit</a> data to play a fun, interactive game with.
+										This is <strong>Fitbit Bearmageddon</strong> a free arena game.
+										Leverage your <a href="http://www.fitbit.com" target="_blank">Fitbit</a> data to compete in trials of fitness!
 									</p>
 									<footer>
 										<a href="#" class="button">Find out more</a>
@@ -408,13 +404,14 @@
     <script src="assets/js/hero/levelBuilder.js"></script>
     <script src="assets/js/hero/achievements.js"></script>
     <script src="assets/js/hero/heroView.js"></script>
-		<script src="assets/js/arena/arenaController.js"></script>
+		<script src="assets/js/arena/arenaView.js"></script>
 		<script src="assets/js/arena/video.js"></script>
 
 		<!-- Page | Routing -->
     <script src="routes/indexController.js"></script>
+
     <script src="routes/heroController.js"></script>
-    <!-- <script src="routes/arenaController.js"></script> -->
+    <script src="routes/arenaController.js"></script>
     <script src="routes/routes.js"></script>
 
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
@@ -426,6 +423,8 @@
             Hero.populateTable(heroView.populateList);
             UserData.createTable();
             Achievement.loadAchievements();
+						arenaView.hideArena();
+						Video.hideVidWrapper();
 		</script>
 
 	</body>

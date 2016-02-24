@@ -11,7 +11,12 @@
     arenaView.heroes = [];
     arenaView.victor = {};
 
+    arenaView.hideArena = function() {
+      $("#arena").hide();
+    }
+
     arenaView.addHero = function() {
+      $("#arena").show();
       if(!arenaView.heroes.length) {
         console.log("Adding first hero");
         arenaView.heroes.push(Hero.all[0]);

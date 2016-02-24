@@ -5,9 +5,8 @@
         console.log('indexController.index called...')
         // load navigation
 
-        // hide hero section
-
-        // hide arena section
+        // hide hero and arena section
+        indexView.render();
     };
 
     module.indexController = indexController;

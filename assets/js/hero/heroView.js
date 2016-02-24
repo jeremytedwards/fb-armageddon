@@ -43,8 +43,10 @@
   }
 
   heroView.arenaNames = function() {
-    $('#contestant1').html(arenaController.heroes[0].charName);
-    $('#contestant2').html(arenaController.heroes[1].charName);
+    $('#contestant1').html(arenaView.heroes[0].charName);
+    if(arenaView.heroes[1]) {
+      $('#contestant2').html(arenaView.heroes[1].charName);
+    }
   }
 
   heroView.coronate = function(string) {
@@ -75,6 +77,7 @@
         Video.menu.push(video);
       })
     }).done(function() {
+      $('#videoWrapper').show();
       var n = getRandomInt(0, Video.menu.length);
       console.log(n);
       console.log(Video.menu[n].htmlcode);

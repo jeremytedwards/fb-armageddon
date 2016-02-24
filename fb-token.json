@@ -1,1 +1,6 @@
-{"access_token":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NTYxODg3NDcsInNjb3BlcyI6InJ3ZWkgcnBybyByaHIgcm51dCByc2xlIHJzZXQgcnNvYyByYWN0Iiwic3ViIjoiMldKVk1DIiwiYXVkIjoiMjI3R0QyIiwiaXNzIjoiRml0Yml0IiwidHlwIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNDU2MTg1MTQ3fQ.2iRe82N_FwW-xG227hUNpxIQ8xL4W6JY9oowZEBqt-g","expires_in":3600,"refresh_token":"cdb276ed46766cdea18fb9bfdea3723215c8eaf64a05c7ecbb4e29d3cc5b28ad","scope":"settings nutrition activity social heartrate profile weight sleep","token_type":"Bearer","user_id":"2WJVMC","expires_at":"20160222T16:52:27"}
+{
+ "access_token": ACCESS_TOKEN,
+ "expires_in": SECONDS,
+ "expires_at": "20150829T10:20:25",
+ "refresh_token": REFRESH_TOKEN
+}

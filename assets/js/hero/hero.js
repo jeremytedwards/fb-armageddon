@@ -12,6 +12,19 @@
   Hero.users = {};
   Hero.menu = [];
 
+  //Function to accept input from the user, create a new hero object, and
+  //add the hero to the SQL table.
+  Hero.createHero = function(input) {
+    var newHero = {
+      charName: input,
+      strength: 0,
+      speed: 0,
+      stamina: 0,
+      achievements: []
+    };
+    Hero.addToTable(newHero);
+  }
+
   //Create working SQL table to hold data for our heroes.
   Hero.createTable = function() {
     webDB.execute(
@@ -29,34 +42,7 @@
     );
   };
 
-  //KG - Moved the setLevels functionality to the LevelBuilder object.
-  //I believe this section can be deleted.
-  /*
-  Hero.prototype.setLevels = function(object) {
-    var dummyHero = new Hero(object);
-    dummyHero.stamina = (object.activeMinutes / n);
-    if (dummyHero.stamina > 20) {
-      dummyHero.stamina = 20;
-    }
-    dummyHero.stamina = dummyHero.stamina.toFixed(0);
-    console.log("Stamina level " + dummyHero.stamina);
-    dummyHero.strength = (object.distance / n);
-    if (dummyHero.strength > 20) {
-      dummyHero.strength = 20;
-    }
-    dummyHero.strength = dummyHero.strength.toFixed(0);
-    console.log("Strength level " + dummyHero.strength);
-    dummyHero.speed = (object.steps / n);
-    if (dummyHero.speed > 20) {
-      dummyHero.speed = 20;
-    }
-    dummyHero.speed = dummyHero.speed.toFixed(0);
-    console.log("Speed level " + dummyHero.speed);
-    return dummyHero;
-  }
-  */
-
-  //Inserts new heroes into the SQL table .
+  //Inserts sample heroes into the SQL table .
   Hero.prototype.populateHeroes = function(callback) {
     webDB.execute(
       [
@@ -86,8 +72,8 @@
     webDB.execute(
       [
         {
-          'sql': 'INSERT INTO Heroes (charName, created, strength, speed, stamina, achievements) VALUES (?, ?, ?, ?, ?, ?);',
-          'data': [e.charName, e.created, e.strength, e.speed, e.stamina, e.achievements],
+          'sql': 'INSERT INTO Heroes (charName, strength, speed, stamina, achievements) VALUES (?, ?, ?, ?, ?);',
+          'data': [e.charName, e.strength, e.speed, e.stamina, e.achievements],
         }
       ]
     );

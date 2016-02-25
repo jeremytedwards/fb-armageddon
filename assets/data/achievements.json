@@ -7,22 +7,22 @@
   {
     "achId": 1,
     "achName": "Bear-rel Roll",
-    "achText": "You have learned how to do a barrel roll by leveling your Strength to 5!"
+    "achText": "You have learned how to do a barrel roll by leveling your Strength to 3!"
   },
   {
     "achId": 2,
     "achName": "Wild Training",
-    "achText": "You have increased awareness of your form by leveling your Strength to 10!"
+    "achText": "You have increased awareness of your form by leveling your Strength to 5!"
   },
   {
     "achId": 3,
     "achName": "Power Slash",
-    "achText": "You have gained the strength to carve up your enemies by leveling your Strength to 15!"
+    "achText": "You have gained the strength to carve up your enemies by leveling your Strength to 7!"
   },
   {
     "achId": 4,
     "achName": "Maul",
-    "achText": "You have mastered the art of reducing your opponents to ruin by leveling your Strength to maximum (20)!"
+    "achText": "You have mastered the art of reducing your opponents to ruin by leveling your Strength to maximum (10)!"
   },
   {
     "achId": 5,
@@ -32,22 +32,22 @@
   {
     "achId": 6,
     "achName": "Ursine Concourse",
-    "achText": "You have forayed into bear racing. Your Speed has leveled to 5!"
+    "achText": "You have forayed into bear racing. Your Speed has leveled to 3!"
   },
   {
     "achId": 7,
     "achName": "Predator's Pursuit",
-    "achText": "Catching prey has become easier as your body has grown leaner and faster. You've leveled your Speed to 10!"
+    "achText": "Catching prey has become easier as your body has grown leaner and faster. You've leveled your Speed to 5!"
   },
   {
     "achId": 8,
     "achName": "Ursine Ultra",
-    "achText": "You won your first bear race! You've leveled your speed to 15!"
+    "achText": "You won your first bear race! You've leveled your speed to 7!"
   },
   {
     "achId": 9,
     "achName": "Victory Lap",
-    "achText": "You have blazed a path around your opponents by leveling your Speed to maximum (20)!"
+    "achText": "You have blazed a path around your opponents by leveling your Speed to maximum (10)!"
   },
   {
     "achId": 10,
@@ -57,21 +57,21 @@
   {
     "achId": 11,
     "achName": "Circus Trick",
-    "achText": "You stood to juggle for an audience by leveling your Stamina to 5!"
+    "achText": "You stood to juggle for an audience by leveling your Stamina to 3!"
   },
   {
     "achId": 12,
     "achName": "Deepwater Diver",
-    "achText": "You held your breath and caught salmon by leveling your Stamina to 10!"
+    "achText": "You held your breath and caught salmon by leveling your Stamina to 5!"
   },
   {
     "achId": 13,
     "achName": "Battle Hardy",
-    "achText": "You are ready to endure ferocious battles. Your Stamina is level 15!"
+    "achText": "You are ready to endure ferocious battles. Your Stamina is level 7!"
   },
   {
     "achId": 14,
     "achName": "Circus Breakout",
-    "achText": "You broke out of the circus by leveling your Stamina to maximum (20)! You are now ruler of the wilds!"
+    "achText": "You broke out of the circus by leveling your Stamina to maximum (10)! You are now ruler of the wilds!"
   }
 ]

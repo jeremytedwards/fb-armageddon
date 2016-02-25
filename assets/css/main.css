@@ -1748,7 +1748,7 @@
 /* Banner */
 
 	#banner {
-		background: #CCE8F4 url("../../images/pic01.jpg");
+		background: #CCE8F4 url("../../images/fitbit-banner.png");
 		background-position: center center;
 		background-size: auto 100%;
 		background-repeat: no-repeat;
@@ -2306,7 +2306,7 @@
 		/* Banner */
 
 			#banner {
-				padding: 6em 0;
+				/*padding: 6em 0;*/
 				margin: 3em 0 0 0;
 			}
 
@@ -2666,7 +2666,7 @@
 
 			#banner {
 				margin: 2em 0 4em 0 !important;
-				padding: 6em 0;
+				/*padding: 6em 0;*/
 			}
 
 				#banner header {

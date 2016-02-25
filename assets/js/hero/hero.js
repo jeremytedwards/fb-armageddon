@@ -100,6 +100,16 @@
     );
   };
 
+  Hero.menuBuilder = function() {
+    Hero.menu = []; //Resets array.
+    webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
+      rows.forEach(function(item) {
+        var hero = new Hero(item);
+        Hero.menu.push(hero);
+      })
+    });
+  }
+
   //Pull static sample heroes from our JSON file, generate an array of Hero objects,
   // and insert them into the SQL table.
   Hero.loadAll = function(rows) {
@@ -113,6 +123,7 @@
 
   Hero.populateTable = function(callback) {
     if(!localStorage.tableCheck) {
+      Hero.menu = []; //Resets array;
       webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
         $.getJSON('assets/data/charModel.json', function(rawData) {
           rawData.forEach(function(item) {
@@ -127,7 +138,9 @@
           callback();
         });
       });
-    }
+    } else {
+      Hero.menuBuilder();
+    };
   };
 
   //Methods for updating Hero data in the SQL table based on FitBit API calls.

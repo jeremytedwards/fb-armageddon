@@ -28,10 +28,26 @@
           return new LevelBuilder(e);
         })
         .reduce(function(newObj, cur) {
-          newObj.caloriesOut += cur.caloriesOut;
-          newObj.distance += cur.distance;
-          newObj.steps += cur.steps;
-          newObj.floors += cur.floors;
+          if(cur.caloriesOut  == "undefined") {
+            newObj.caloriesOut += 0;
+          } else {
+            newObj.caloriesOut += cur.caloriesOut;
+          };
+          if(cur.distance  == "undefined") {
+            newObj.distance += 0;
+          } else {
+            newObj.distance += cur.distance;
+          };
+          if(cur.steps  == "undefined") {
+            newObj.steps += 0;
+          } else {
+            newObj.steps += cur.steps;
+          };
+          if(cur.floors == "undefined") {
+            newObj.floors += 0;
+          } else {
+            newObj.floors += cur.floors;
+          };
           console.log('calories', newObj.caloriesOut, cur.caloriesOut);
           console.log('distance', newObj.distance, cur.distance);
           console.log('steps', newObj.steps, cur.steps);
@@ -55,17 +71,17 @@
   };
 
   LevelBuilder.setLevels = function(obj) {
-    obj.strength = Math.floor(obj.floors / 100);
-    if(obj.strength > 20) {
-      obj.strength = 20;
+    obj.strength = Math.floor(obj.floors / 50);
+    if(obj.strength > 10) {
+      obj.strength = 10;
     };
-    obj.speed = Math.floor(obj.distance / 25);
-    if(obj.speed > 20) {
-      obj.speed = 20;
+    obj.speed = Math.floor(obj.distance / 100);
+    if(obj.speed > 10) {
+      obj.speed = 10;
     };
-    obj.stamina = Math.floor(obj.steps / 50000);
-    if(obj.stamina > 20) {
-      obj.stamina = 20;
+    obj.stamina = Math.floor(obj.steps / 100000);
+    if(obj.stamina > 10) {
+      obj.stamina = 10;
     };
   };
 

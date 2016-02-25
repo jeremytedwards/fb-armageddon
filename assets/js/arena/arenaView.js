@@ -38,5 +38,61 @@
       arenaView.heroes = [];
     }
 
+
+    arenaView.coronate = function(string) {
+        $('#contestant1').hide();
+        $('#contestant2').hide();
+        $('#centerArena').hide();
+        $('#victoryName').show();
+        $('#victoryName').html(string);
+
+        console.log("arenaView.coronate called...");
+    }
+
+    arenaView.setArenaLeft = function() {
+        $("#arena").show();
+        arenaView.heroes.push(Hero.all[0]);
+        $('#victoryName').hide();
+        $('#centerArena').show();
+        $('#contestant1').show();
+        $('#contestant1').html(Hero.all[0].charName);
+
+        console.log("arenaView.setArenaLeft called...");
+    }
+
+    arenaView.setArenaRight = function() {
+        $("#arena").show();
+        arenaView.heroes.push(Hero.all[0]);
+        $('#victoryName').hide();
+        $('#centerArena').show();
+        $('#contestant2').show();
+        $('#contestant2').html(Hero.all[0].charName);
+
+        console.log("arenaView.setArenaRight called...");
+    }
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    arenaView.displayVid = function() {
+        $.getJSON('assets/data/videoList.json', function(rawData) {
+            rawData.forEach(function(item) {
+                var video = new Video(item);
+                console.log(video);
+                Video.menu.push(video);
+            })
+        }).done(function() {
+            $('#videoWrapper').show();
+            var n = getRandomInt(0, Video.menu.length);
+            console.log(n);
+            console.log(Video.menu[n].htmlcode);
+            $('#videoWrapper').html(Video.menu[n].htmlcode);
+            Video.menu = [];
+        });
+
+        console.log("arenaView.displayVid called...");
+    }
+
     module.arenaView = arenaView;
 })(window);

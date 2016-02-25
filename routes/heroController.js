@@ -2,16 +2,12 @@
     var heroController = {};
 
     heroController.index = function() {
-        console.log('heroController called lets test')
-        $('#hero').show();
-        //Check if one is in cache
-        if(localStorage.heroName) {
+        console.log("heroController called...");
+        if ( localStorage.heroName ) {
             heroView.heroPage();
         } else {
-          heroView.empty();
-          heroView.initCreateButton();
+            heroView.emptyPage();
         }
-
     };
 
     module.heroController = heroController;

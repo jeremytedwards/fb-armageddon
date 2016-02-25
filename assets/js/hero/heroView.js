@@ -59,7 +59,7 @@
 
   heroView.wipeAchievements = function() {
     $('#achievements').html('');
-    $('.achivement-list').html('');
+    $('.achievement-list').html('');
 
     console.log("heroView.wipeAchievements called...");
   }
@@ -125,9 +125,8 @@
       e.preventDefault();
 
       // TODO: refactor prompt for hero name create hero generic
-      localStorage.heroName = window.prompt("Enter a Hero name","GenericHero")
+      localStorage.heroName = $('#heroCreate').val();
       Hero.createHero(localStorage.heroName);
-
       heroView.heroPage();
       console.log("create-btn clicked...");
     });
@@ -226,6 +225,8 @@
 
   heroView.heroPage = function() {
     heroView.hideAllHeroItems();
+    // Hide create form
+    $('#crform').hide();
     // show hero section
     $('#hero').show();
 

@@ -22,7 +22,7 @@
                 <div id="header">
 
                 <!-- Logo -->
-                    <h1 class="image"><a href="index.html"><img src="/images/logo.png"></a></h1>
+                    <h1 class="image"><a href="/"><img src="/images/logo.png"></a></h1>
 
                 <!-- Nav -->
                     <nav id="nav">
@@ -176,8 +176,8 @@
 
                                             <section id="fitbit-nav">
                                                 <div>
-                                                    <a href="/fitbit" class="button alt" id="fb-btn">+ Fitbit</a>
-                                                    <a href="#" class="button alt" id="lo-btn">Logout</a>
+                                                    <a href="/fitbit" class="button alt" id="fb-btn">Add FitBit Account</a>
+																										<a href="#" class="button alt" id="fb-data-btn">Sync FitBit Data</a>
                                                     <a href="#" class="button alt" id="ch-btn">Create Hero</a>
                                                 </div>
                                             </section>
@@ -414,8 +414,7 @@
 
         <!-- WORKING Area for adding test scripts -->
         <script>
-            Hero.createTable();
-            Hero.populateTable(heroView.populateList);
+
             UserData.createTable();
             Achievement.loadAchievements();
             Video.hideVidWrapper();

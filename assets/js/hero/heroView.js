@@ -38,6 +38,7 @@
 
   heroView.populateHeroList = function() {
     console.log(Hero.menu);
+    $('#saved-heros').html('');
 
     Hero.menu.forEach(function(hero) {
       var appStr = '<li style="white-space: nowrap;">' + hero.charName + '</li>';
@@ -136,48 +137,39 @@
     $('#ch-btn').on('click', function(e) {
       e.preventDefault();
 
-      localStorage.clear();
+      localStorage.removeItem('heroName');
 
       heroView.emptyPage();
       console.log("ch-btn clicked...");
     });
   }
 
-  heroView.initFitbitNavAddFitbit = function() {
-    $('#fb-btn').on('click', function(e) {
+  heroView.initFitbitNavSync = function() {
+    $('#fb-data-btn').on('click', function(e) {
       e.preventDefault();
 
-      // TODO: call /fitbit route
-      $.get('/fitbit', function(data) {
-        console.log('Calling to /fitbit...')
-      });
-
-      // TODO: call get json route
       UserData.fetchJSON();
 
       // Update button states
-      $('#fb-btn').hide();
+      $('#fb-btn').show();
+      $('#fb-data-btn').hide();
       $('#ch-btn').show();
-      $('#lo-btn').show();
 
       //heroView.heroPage();
       console.log("fb-btn clicked...");
     });
   }
 
-  heroView.initFitbitNavLogout = function() {
-    $('#lo-btn').on('click', function(e) {
-      e.preventDefault();
-
-      // TODO: call /logout route
-      //$.ajax('/logout').done();
+  heroView.initFitbitNavAddFitbit = function() {
+    $('#fb-btn').on('click', function(e) {
 
       // Update button states
       $('#fb-btn').show();
+      $('#fb-data-btn').show();
       $('#ch-btn').show();
-      $('#lo-btn').hide();
 
-      console.log("lo-btn clicked...");
+      //heroView.heroPage();
+      console.log("fb-btn clicked...");
     });
   }
 
@@ -186,11 +178,10 @@
   heroView.renderFitbitNav = function() {
     heroView.initFitbitNavCreateButton();
     heroView.initFitbitNavAddFitbit();
-    heroView.initFitbitNavLogout();
+    heroView.initFitbitNavSync();
 
-    // hide logout button
-    $('#lo-btn').hide();
-    $('#fb-btn').show();
+    // $('#fb-btn').show();
+    $('#fb-data-btn').show();
     $('#ch-btn').show();
 
     console.log("heroView.renderFitbitNav called...");
@@ -209,6 +200,8 @@
     // show hero section
     $('#hero').show();
 
+    $('#crform').show();
+
     // show #create-btn
     $('#create-btn').show();
     // show #intro
@@ -218,7 +211,8 @@
 
     // render functions
     heroView.initHeroCreateButton();
-    heroView.populateHeroList();
+    Hero.menuBuilder(heroView.populateHeroList);
+    // heroView.populateHeroList();
 
     console.log("heroView.emptyPage called...");
   }
@@ -247,7 +241,7 @@
     heroView.renderFitbitNav();
     heroView.renderStats();
     heroView.renderAchievements();
-    heroView.populateHeroList();
+    Hero.menuBuilder(heroView.populateHeroList);
 
     console.log("heroView.heroPage called...");
   }

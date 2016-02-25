@@ -144,7 +144,7 @@
 
 	.torso img {
 		position: absolute;
-		top: 149px;
+		top: 0;
 		width: 320px;
 	}
 
@@ -157,6 +157,12 @@
 	.bottomhero {
 		position: absolute;
 		top: 460px;
+	}
+
+	#hero-achievements ul li {
+		display: inline-block;
+		margin-left: 2px;
+		margin-right: 2px;
 	}
 
 	/* ARENA */
@@ -1998,7 +2004,7 @@
 
 				.torso img {
     			position: absolute;
-					top: 338px;
+					top: 0;
 					width: 100%;
 				}
 
@@ -2218,7 +2224,7 @@
 
 			.torso img {
 				position: absolute;
-				top: 272px;
+				top: 0;
 				width: 100%;
 			}
 

@@ -28,7 +28,7 @@
   heroView.renderAchievements = function() {
     Hero.all.forEach(function(hero) {
       hero.achievements.forEach(function(a) {
-        $('#hero-achievements ul').append('<li><img src="/images/' + a.achId + '-achievements.png" alt="' + a.achText + '"/></li>');
+        $('#hero-achievements ul').append('<li><img src="/images/' + a.achId + '-achievements.png" class="achievement" title="' + a.achText + '"/></li>');
         $('.achivement-list').append(a.achName + ', ');
       });
     })

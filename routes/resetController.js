@@ -1,3 +1,5 @@
+//var fs = require( 'fs' );
+
 (function(module) {
     var resetController = {};
 
@@ -13,9 +15,10 @@
 
         // TODO: Restore the status to a default state
         localStorage.clear();
+        Hero.massacre();
         UserData.dumpUsers();
 
-        fs.writeFile( './fb-token.json', tokenResetString);
+        //fs.writeFile( './fb-token.json', tokenResetString);
 
         $('#hero').hide();
         $('#arena').hide();

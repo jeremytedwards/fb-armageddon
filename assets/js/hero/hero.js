@@ -97,7 +97,10 @@
         {
           'sql': 'drop table Heroes;',
         }
-      ]
+      ],
+      function() {
+        localStorage.removeItem('tableCheck');
+      }
     );
   };
 
@@ -122,7 +125,7 @@
     })
   };
 
-  Hero.populateTable = function(callback) {
+  Hero.populateTable = function() {
     if(!localStorage.tableCheck) {
       Hero.menu = []; //Resets array;
       webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
@@ -136,7 +139,6 @@
         }).done(function() {
           localStorage.tableCheck = true;
           console.log("Callback is being called now");
-          callback();
         });
       });
     } else {

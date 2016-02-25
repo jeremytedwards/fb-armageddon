@@ -28,7 +28,7 @@
   heroView.renderAchievements = function() {
     Hero.all.forEach(function(hero) {
       hero.achievements.forEach(function(a) {
-        $('#hero-achievements ul').append('<li><img src="/images/' + a.achId + '-achievements.png" alt="' + a.achText + '"/></li>');
+        $('#hero-achievements ul').append('<li><img src="/images/' + a.achId + '-achievements.png" class="achievement" title="' + a.achText + '"/></li>');
         $('.achivement-list').append(a.achName + ', ');
       });
     })
@@ -41,13 +41,14 @@
     $('#saved-heros').html('');
 
     Hero.menu.forEach(function(hero) {
-      var appStr = '<li style="white-space: nowrap;">' + hero.charName + '</li>';
+      var appStr = '<li style="white-space: nowrap;"><a href="#" class="hero-menu">' + hero.charName + '</a></li>';
       $('#saved-heros').append(appStr);
 
       console.log(appStr);
     });
 
     console.log("heroView.populateHeroList called...");
+    heroView.heroSelect();
   }
 
   heroView.wipeHero = function() {
@@ -86,6 +87,7 @@
     $('#hero-stats').hide();
     $('#player-nav').hide();
     $('#fitbit-nav').hide();
+    $('.herocontainer img').hide();
 
     console.log("heroView.hideAllHeroItems called...");
   }
@@ -212,7 +214,6 @@
     // render functions
     heroView.initHeroCreateButton();
     Hero.menuBuilder(heroView.populateHeroList);
-    // heroView.populateHeroList();
 
     console.log("heroView.emptyPage called...");
   }
@@ -236,7 +237,7 @@
     $('#hero-list').show();
 
     // render functions
-    heroView.renderHero();
+    Hero.outputHero(localStorage.heroName,heroView.renderHero);
     heroView.renderPlayerNav();
     heroView.renderFitbitNav();
     heroView.renderStats();
@@ -244,6 +245,15 @@
     Hero.menuBuilder(heroView.populateHeroList);
 
     console.log("heroView.heroPage called...");
+  }
+
+  heroView.heroSelect = function() {
+    $('.hero-menu').on('click', function(e) {
+      e.preventDefault();
+      localStorage.heroName = $(this).text();
+      console.log('this is in lc' + localStorage.heroName);
+      Hero.outputHero(localStorage.heroName,heroView.renderHero);
+    });
   }
 
   module.heroView = heroView;

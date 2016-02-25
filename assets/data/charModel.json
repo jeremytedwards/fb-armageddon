@@ -10,9 +10,9 @@
   {
     "charName": "Cortana",
     "created": "2016-02-19",
-    "strength": "12",
-    "speed": "18",
-    "stamina": "15",
+    "strength": "10",
+    "speed": "3",
+    "stamina": "2",
     "achievements": []
   },
   {

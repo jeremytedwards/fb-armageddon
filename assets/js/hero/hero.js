@@ -169,9 +169,11 @@
         Hero.loadAll(rows);
         console.log("outputHero complete");
       });
-      if(callback) {
-        callback();
-      };
+      setTimeout(function() {
+        if(callback) {
+          callback();
+        };
+      },500);
   };
 
   //Methods for integrating achievement system.
@@ -180,46 +182,46 @@
     if(this.strength > 0) {
       tempArray.push(Achievement.all[0]);
     }
-    if(this.strength > 4) {
+    if(this.strength > 2) {
       tempArray.push(Achievement.all[1]);
     }
-    if(this.strength > 9) {
+    if(this.strength > 4) {
       tempArray.push(Achievement.all[2]);
     }
-    if(this.strength > 14) {
+    if(this.strength > 6) {
       tempArray.push(Achievement.all[3]);
     }
-    if(this.strength > 19) {
+    if(this.strength > 9) {
       tempArray.push(Achievement.all[4]);
     }
     if(this.stamina > 0) {
       tempArray.push(Achievement.all[5]);
     }
-    if(this.stamina > 4) {
+    if(this.stamina > 2) {
       tempArray.push(Achievement.all[6]);
     }
-    if(this.stamina > 9) {
+    if(this.stamina > 4) {
       tempArray.push(Achievement.all[7]);
     }
-    if(this.stamina > 14) {
+    if(this.stamina > 6) {
       tempArray.push(Achievement.all[8]);
     }
-    if(this.stamina > 19) {
+    if(this.stamina > 9) {
       tempArray.push(Achievement.all[9]);
     }
     if(this.speed > 0) {
       tempArray.push(Achievement.all[10]);
     }
-    if(this.speed > 4) {
+    if(this.speed > 2) {
       tempArray.push(Achievement.all[11]);
     }
-    if(this.speed > 9) {
+    if(this.speed > 4) {
       tempArray.push(Achievement.all[12]);
     }
-    if(this.speed > 14) {
+    if(this.speed > 6) {
       tempArray.push(Achievement.all[13]);
     }
-    if(this.speed > 19) {
+    if(this.speed > 009) {
       tempArray.push(Achievement.all[14]);
     }
     this.achievements = tempArray;

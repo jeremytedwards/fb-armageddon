@@ -1,5 +1,6 @@
 (function(module) {
     var arenaView = {};
+    arenaView.heroes = [];
 
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
@@ -18,12 +19,12 @@
 
             if(a.level > b.level) {
                 arenaView.victor = a;
-                heroView.coronate(a.charName + ' is the victor.');
+                arenaView.coronate(a.charName + ' is the victor.');
             } else if(b.level > a.level) {
                 arenaView.victor = b;
-                heroView.coronate(b.charName + ' is the victor.');
+                arenaView.coronate(b.charName + ' is the victor.');
             } else {
-                heroView.coronate('The battle was a draw.');
+                arenaView.coronate('The battle was a draw.');
             }
         });
 
@@ -117,6 +118,7 @@
 
             // Update button states
             $('#battle-btn').hide();
+            $('#battlenames').hide();
 
             console.log("battle-btn clicked...");
         });

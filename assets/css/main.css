@@ -1997,7 +1997,6 @@
 
 				.bearhead img {
 					position: absolute;
-					z-index: 2;
 					left: 0;
 					width: 100%;
 				}
@@ -2011,7 +2010,6 @@
 				.weapon img {
     			position: absolute;
 					top: 0px;
-					z-index: 5;
 					width: 100%;
 				}
 
@@ -2218,7 +2216,6 @@
 
 			.bearhead img {
 				position: absolute;
-				z-index: 2;
 				width: 100%;
 			}
 
@@ -2231,7 +2228,6 @@
 			.weapon img {
 				position: absolute;
 				top: 0px;
-				z-index: 5;
 				width: 100%;
 			}
 

@@ -190,7 +190,9 @@
 
   heroView.renderPlayerNav = function() {
     $('#arenaLeft-btn').show();
+    heroView.initArenaLeftButton();
     $('#arenaRight-btn').show();
+    heroView.initArenaRightButton();
 
     console.log("heroView.renderPlayerNav called...");
   }
@@ -250,7 +252,7 @@
     $('.hero-menu').on('click', function(e) {
       e.preventDefault();
       localStorage.heroName = $(this).text();
-      console.log('this is in lc' + localStorage.heroName);
+      console.log('this is in ls' + localStorage.heroName);
     });
   }
 

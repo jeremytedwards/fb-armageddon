@@ -23,6 +23,8 @@
       achievements: []
     };
     Hero.addToTable(newHero);
+    Hero.all = [];
+    Hero.all.push(newHero);
     localStorage.heroName = input;
   }
 

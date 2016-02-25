@@ -65,8 +65,8 @@
     console.log("HeroPage");
     Hero.outputHero(localStorage.heroName);
     $('#fitbitnav').show();
-    heroView.render();
     heroView.populateList();
+    heroView.render();
   }
 
   heroView.wipe = function() {

@@ -2,127 +2,219 @@
 
   var heroView = {};
 
-  heroView.render = function() {
-    $('#statscont').show();
-    console.log("Render");
+  heroView.renderHero = function() {
     Hero.all.forEach(function(hero) {
       localStorage.heroName = hero.charName;
+
       $('#bearhead').html('<img src="/images/' + hero.stamina + '-head.png" />');
       $('#torso').html('<img src="/images/' + hero.strength + '-torso.png" />');
       $('#weapon').html('<img src="/images/' + hero.speed + '-weapon.png" />');
+
+    });
+
+    console.log("heroView.renderHero called...");
+  }
+
+  heroView.renderStats = function() {
+    Hero.all.forEach(function(hero) {
       $('.stamina').html(hero.stamina);
       $('.strength').html(hero.strength);
       $('.speed').html(hero.speed);
+    })
+
+    console.log("heroView.renderStats called...");
+  }
+
+  heroView.renderAchievements = function() {
+    Hero.all.forEach(function(hero) {
       hero.achievements.forEach(function(a) {
-        $('#achievements ul').append('<li><img src="/images/' + a.achId + '-achievements.png" alt="' + a.achText + '"/></li>');
-        $('.achlist').append(a.achName + ', ');
+        $('#hero-achievements ul').append('<li><img src="/images/' + a.achId + '-achievements.png" alt="' + a.achText + '"/></li>');
+        $('.achivement-list').append(a.achName + ', ');
       });
     })
-  };
 
-  heroView.hideHero = function() {
-    $('#hero').hide();
+    console.log("heroView.renderAchievements called...");
   }
 
-  heroView.populateList = function() {
-    console.log("Populate List");
+  heroView.populateHeroList = function() {
     console.log(Hero.menu);
+
     Hero.menu.forEach(function(hero) {
-      console.log(hero.charName);
       var appStr = '<li style="white-space: nowrap;">' + hero.charName + '</li>';
+      $('#saved-heros').append(appStr);
+
       console.log(appStr);
-      $('#herolist').append(appStr);
-      // $('#herolist li').on('click', function() {
-      //   Hero.loadHero(hero);
-      //   console.log("Populate List hero");
-      // })
     });
-    console.log("Heroes appended.");
+
+    console.log("heroView.populateHeroList called...");
   }
 
-  heroView.empty = function() {
-    //Show intro
-    $('#fitbitnav').hide();
-    $('#statscont').hide();
-    heroView.populateList();
-    $('#btmnav').hide();
-    console.log("Empty");
-    //Show create button
-  }
-
-  heroView.initCreateButton = function() {
-    $('#bigCr').on('click', function() {
-
-      Hero.createHero("Generic");
-      heroController.index();
-    });
-  }
-
-  heroView.heroPage = function() {
-    //Show fitbit button
-    //Show create button
-    console.log("HeroPage");
-    Hero.outputHero(localStorage.heroName);
-    $('#fitbitnav').show();
-    heroView.render();
-    heroView.populateList();
-  }
-
-  heroView.wipe = function() {
+  heroView.wipeHero = function() {
     $('#head').html('');
     $('#torso').html('');
     $('#weapon').html('');
+
+    console.log("heroView.wipeHero called...");
+  }
+
+  heroView.wipeAchievements = function() {
     $('#achievements').html('');
-    $('.achlist').html('');
+    $('.achivement-list').html('');
+
+    console.log("heroView.wipeAchievements called...");
+  }
+
+  heroView.wipeStats = function() {
     $('.stats li').text('');
+
+    console.log("heroView.wipeStats called...");
   }
 
-  heroView.coronate = function(string) {
-    $('#contestant1').hide();
-    $('#contestant2').hide();
-    $('#centerArena').hide();
-    $('#victoryName').show();
-    $('#victoryName').html(string);
+  heroView.wipe = function() {
+    heroView.wipeHero();
+    heroView.wipeStats();
+    heroView.wipeAchievements();
+
+    console.log("heroView.wipe called...");
   }
 
-  heroView.setArenaLeft = function() {
-    $("#arena").show();
-    arenaView.heroes.push(Hero.all[0]);
-    $('#victoryName').hide();
-    $('#centerArena').show();
-    $('#contestant1').show();
-    $('#contestant1').html(Hero.all[0].charName);
+  heroView.hideAllHeroItems = function() {
+    $('#create-btn').hide();
+    $('#hero-instructions').hide();
+    $('#hero-list').hide();
+    $('#hero-stats').hide();
+    $('#player-nav').hide();
+    $('#fitbit-nav').hide();
+
+    console.log("heroView.hideAllHeroItems called...");
   }
 
-  heroView.setArenaRight = function() {
-    $("#arena").show();
-    arenaView.heroes.push(Hero.all[0]);
-    $('#victoryName').hide();
-    $('#centerArena').show();
-    $('#contestant2').show();
-    $('#contestant2').html(Hero.all[0].charName);
+
+  /**  Button Handlers **/
+
+  heroView.initHeroCreateButton = function() {
+    $('#create-btn').on('click', function(e) {
+      e.preventDefault();
+
+      // TODO: refactor create hero generic
+      Hero.createHero("Generic");
+
+      heroView.heroPage();
+      console.log("create-btn clicked...");
+    });
   }
 
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+  heroView.initFitbitNavCreateButton = function() {
+    $('#ch-btn').on('click', function(e) {
+      e.preventDefault();
+
+      localStorage.clear();
+
+      heroView.emptyPage();
+      console.log("ch-btn clicked...");
+    });
   }
 
-  heroView.displayVid = function() {
-    $.getJSON('assets/data/videoList.json', function(rawData) {
-      rawData.forEach(function(item) {
-        var video = new Video(item);
-        console.log(video);
-        Video.menu.push(video);
-      })
-    }).done(function() {
-      $('#videoWrapper').show();
-      var n = getRandomInt(0, Video.menu.length);
-      console.log(n);
-      console.log(Video.menu[n].htmlcode);
-      $('#videoWrapper').html(Video.menu[n].htmlcode);
-      Video.menu = [];
-    })
+  heroView.initFitbitNavAddFitbit = function() {
+    $('#fb-btn').on('click', function(e) {
+      e.preventDefault();
+
+      // TODO: call /fitbit route
+      //window.location = "/fitbit"
+
+      // TODO: call get json route
+      //$ajax().done();
+
+
+      // Update button states
+      $('#fb-btn').hide();
+      $('#ch-btn').show();
+      $('#lo-btn').show();
+
+      //heroView.heroPage();
+      console.log("fb-btn clicked...");
+    });
   }
 
-module.heroView = heroView;
+  heroView.initFitbitNavLogout = function() {
+    $('#lo-btn').on('click', function(e) {
+      e.preventDefault();
+
+      // TODO: call /logout route
+      //$.ajax('/logout').done();
+
+      // Update button states
+      $('#fb-btn').show();
+      $('#ch-btn').show();
+      $('#lo-btn').hide();
+
+      console.log("lo-btn clicked...");
+    });
+  }
+
+
+  /**  Render Fitbit Navigation **/
+
+  heroView.renderFitbitNav = function() {
+    heroView.initFitbitNavCreateButton();
+    heroView.initFitbitNavAddFitbit();
+    heroView.initFitbitNavLogout();
+
+    // hide logout button
+    $('#lo-btn').hide();
+    $('#fb-btn').show();
+    $('#ch-btn').show();
+
+    console.log("heroView.renderFitbitNav called...");
+  }
+
+
+  /**  Page Views **/
+
+  heroView.emptyPage = function() {
+    heroView.hideAllHeroItems();
+    // show hero section
+    $('#hero').show();
+
+    // show #create-btn
+    $('#create-btn').show();
+    // show #intro
+    $('#hero-instructions').show();
+    // show #hero-list
+    $('#hero-list').show();
+
+    // render functions
+    heroView.initHeroCreateButton();
+    heroView.populateHeroList();
+
+    console.log("heroView.emptyPage called...");
+  }
+
+  heroView.heroPage = function() {
+    heroView.hideAllHeroItems();
+    // show hero section
+    $('#hero').show();
+
+    // show #player-nav
+    $('#player-nav').show();
+    // show #fitbit-nav
+    $('#fitbit-nav').show();
+    // show #stats
+    $('#hero-stats').show();
+    // show #hero-achievements
+    $('#hero-achivements').show();
+    // show
+    $('#hero-list').show();
+
+    // render functions
+    heroView.renderHero();
+    heroView.renderFitbitNav();
+    heroView.renderStats();
+    heroView.renderAchievements();
+    heroView.populateHeroList();
+
+    console.log("heroView.heroPage called...");
+  }
+
+  module.heroView = heroView;
 })(window);

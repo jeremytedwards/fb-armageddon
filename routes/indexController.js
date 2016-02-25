@@ -3,13 +3,9 @@
 
     indexController.index = function() {
         console.log("indexController called...");
-        // set hero section
-        arenaView.hideArena();
-        heroView.hideHero();
 
-        // set arena sectio
-
-
+        $('#hero').hide();
+        $('#arena').hide();
     };
 
     module.indexController = indexController;

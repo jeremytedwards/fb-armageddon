@@ -5,6 +5,15 @@
         console.log("heroController called...");
 
         // init before page load
+        // TODO: initialize the Hero.all with current hero's
+        //Hero.populateTable(function(){
+        //    // load page
+        //    if ( localStorage.heroName ) {
+        //        heroView.heroPage();
+        //    } else {
+        //        heroView.emptyPage();
+        //    }
+        //});
 
         // load page
         if ( localStorage.heroName ) {
@@ -12,6 +21,7 @@
         } else {
             heroView.emptyPage();
         }
+
     };
 
     module.heroController = heroController;

@@ -47,6 +47,26 @@
     );
   };
 
+  UserData.fetchAUTH = function() {
+    webDB.execute('SELECT * FROM UserData ORDER BY userID ASC', function(rows) {
+      $.get('/fitbit', function(data) {
+        UserData.lifetime = {};
+        var userObj = eval(data);
+        var lifetime = userObj.lifetime.total;
+        console.log(userObj);
+        console.log(lifetime);
+        UserData.lifetime = lifetime;
+        UserData.lifetime.heroID = localStorage.heroName;
+      })
+      .done(function() {
+        //May need to add a record deletion function call here to prevent this
+        //table from accumulating old data.
+        UserData.addToTable(UserData.lifetime);
+        LevelBuilder.aggregate();
+      });
+    });
+  }
+
   UserData.fetchJSON = function() {
     webDB.execute('SELECT * FROM UserData ORDER BY userID ASC', function(rows) {
       $.get('/fb-profile', function(data) {

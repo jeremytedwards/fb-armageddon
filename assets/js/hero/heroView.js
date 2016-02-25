@@ -99,6 +99,9 @@
       // Add current hero name to left of area
       arenaView.setArenaLeft();
 
+      // TODO: jump to area on click
+      //location.href="/arena#arena";
+
       console.log("arenaLeft-btn clicked...");
     });
   }
@@ -110,6 +113,9 @@
       // Add current hero name to left of area
       arenaView.setArenaRight();
 
+      // TODO: jump to area on click
+      //location.href="/arena#arena";
+
       console.log("arenaRight-btn clicked...");
     });
   }
@@ -118,8 +124,9 @@
     $('#create-btn').on('click', function(e) {
       e.preventDefault();
 
-      // TODO: refactor create hero generic
-      Hero.createHero("Generic");
+      // TODO: refactor prompt for hero name create hero generic
+      localStorage.heroName = window.prompt("Enter a Hero name","GenericHero")
+      Hero.createHero(localStorage.heroName);
 
       heroView.heroPage();
       console.log("create-btn clicked...");
@@ -142,10 +149,12 @@
       e.preventDefault();
 
       // TODO: call /fitbit route
-      //window.location = "/fitbit"
+      $.get('/fitbit', function(data) {
+        console.log('Calling to /fitbit...')
+      });
 
       // TODO: call get json route
-      //$ajax().done();
+      UserData.fetchJSON();
 
       // Update button states
       $('#fb-btn').hide();

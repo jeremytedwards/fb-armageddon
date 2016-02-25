@@ -92,6 +92,28 @@
 
   /**  Button Handlers **/
 
+  heroView.initArenaLeftButton = function() {
+    $('#arenaLeft-btn').on('click', function(e) {
+      e.preventDefault();
+
+      // Add current hero name to left of area
+      arenaView.setArenaLeft();
+
+      console.log("arenaLeft-btn clicked...");
+    });
+  }
+
+  heroView.initArenaRightButton = function() {
+    $('#arenaRight-btn').on('click', function(e) {
+      e.preventDefault();
+
+      // Add current hero name to left of area
+      arenaView.setArenaRight();
+
+      console.log("arenaRight-btn clicked...");
+    });
+  }
+
   heroView.initHeroCreateButton = function() {
     $('#create-btn').on('click', function(e) {
       e.preventDefault();
@@ -125,7 +147,6 @@
       // TODO: call get json route
       //$ajax().done();
 
-
       // Update button states
       $('#fb-btn').hide();
       $('#ch-btn').show();
@@ -152,7 +173,6 @@
     });
   }
 
-
   /**  Render Fitbit Navigation **/
 
   heroView.renderFitbitNav = function() {
@@ -168,7 +188,12 @@
     console.log("heroView.renderFitbitNav called...");
   }
 
+  heroView.renderPlayerNav = function() {
+    $('#arenaLeft-btn').show();
+    $('#arenaRight-btn').show();
 
+    console.log("heroView.renderPlayerNav called...");
+  }
   /**  Page Views **/
 
   heroView.emptyPage = function() {
@@ -208,6 +233,7 @@
 
     // render functions
     heroView.renderHero();
+    heroView.renderPlayerNav();
     heroView.renderFitbitNav();
     heroView.renderStats();
     heroView.renderAchievements();

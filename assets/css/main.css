@@ -60,6 +60,8 @@
 		box-sizing: border-box;
 	}
 
+/* Init state when hitting root */
+
 	#hero {
 		display: none;
 	}
@@ -68,6 +70,7 @@
 	}
 
 /* Video Container */
+
 	#videoWrapper {
 		position: relative;
 		padding-bottom: 56.25%; /* 16:9 */

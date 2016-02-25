@@ -13,6 +13,7 @@
 
         // TODO: Restore the status to a default state
         localStorage.clear();
+        Hero.massacre();
         UserData.dumpUsers();
 
         fs.writeFile( './fb-token.json', tokenResetString);

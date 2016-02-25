@@ -4,9 +4,8 @@
     arenaController.index = function() {
         console.log("arenaController called...");
 
-        // set hero section
+        
 
-        // set arena section
 
 
     };

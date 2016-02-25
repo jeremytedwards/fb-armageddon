@@ -3,6 +3,8 @@
   var heroView = {};
 
   heroView.render = function() {
+    $('#statscont').show();
+    console.log("Render");
     Hero.all.forEach(function(hero) {
       localStorage.heroName = hero.charName;
       $('#bearhead').html('<img src="/images/' + hero.stamina + '-head.png" />');
@@ -18,6 +20,10 @@
     })
   };
 
+  heroView.hideHero = function() {
+    $('#hero').hide();
+  }
+
   heroView.populateList = function() {
     console.log("Populate List");
     console.log(Hero.menu);
@@ -32,6 +38,34 @@
       // })
     });
     console.log("Heroes appended.");
+  }
+
+  heroView.empty = function() {
+    //Show intro
+    $('#fitbitnav').hide();
+    $('#statscont').hide();
+    heroView.populateList();
+    $('#btmnav').hide();
+    console.log("Empty");
+    //Show create button
+  }
+
+  heroView.initCreateButton = function() {
+    $('#bigCr').on('click', function() {
+
+      Hero.createHero("Generic");
+      heroController.index();
+    });
+  }
+
+  heroView.heroPage = function() {
+    //Show fitbit button
+    //Show create button
+    console.log("HeroPage");
+    Hero.outputHero(localStorage.heroName);
+    $('#fitbitnav').show();
+    heroView.render();
+    heroView.populateList();
   }
 
   heroView.wipe = function() {

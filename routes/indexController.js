@@ -3,11 +3,11 @@
 
     indexController.index = function() {
         console.log("indexController called...");
-        // set navigation
-
         // set hero section
+        arenaView.hideArena();
+        heroView.hideHero();
 
-        // set arena section
+        // set arena sectio
 
 
     };

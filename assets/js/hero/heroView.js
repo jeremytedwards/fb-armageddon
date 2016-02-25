@@ -41,13 +41,14 @@
     $('#saved-heros').html('');
 
     Hero.menu.forEach(function(hero) {
-      var appStr = '<li style="white-space: nowrap;">' + hero.charName + '</li>';
+      var appStr = '<li style="white-space: nowrap;"><a href="#" class="hero-menu">' + hero.charName + '</a></li>';
       $('#saved-heros').append(appStr);
 
       console.log(appStr);
     });
 
     console.log("heroView.populateHeroList called...");
+    heroView.heroSelect();
   }
 
   heroView.wipeHero = function() {
@@ -212,7 +213,6 @@
     // render functions
     heroView.initHeroCreateButton();
     Hero.menuBuilder(heroView.populateHeroList);
-    // heroView.populateHeroList();
 
     console.log("heroView.emptyPage called...");
   }
@@ -244,6 +244,14 @@
     Hero.menuBuilder(heroView.populateHeroList);
 
     console.log("heroView.heroPage called...");
+  }
+
+  heroView.heroSelect = function() {
+    $('.hero-menu').on('click', function(e) {
+      e.preventDefault();
+      localStorage.heroName = $(this).text();
+      console.log('this is in lc' + localStorage.heroName);
+    });
   }
 
   module.heroView = heroView;

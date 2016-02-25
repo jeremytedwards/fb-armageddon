@@ -23,6 +23,7 @@
       achievements: []
     };
     Hero.addToTable(newHero);
+    localStorage.heroName = input;
   }
 
   //Create working SQL table to hold data for our heroes.

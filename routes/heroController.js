@@ -6,10 +6,10 @@
         $('#hero').show();
         //Check if one is in cache
         if(localStorage.heroName) {
-            Hero.outputHero(localStorage.heroName);
             heroView.heroPage();
         } else {
           heroView.empty();
+          heroView.initCreateButton();
         }
 
     };

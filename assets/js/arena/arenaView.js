@@ -15,21 +15,6 @@
       $("#arena").hide();
     }
 
-    arenaView.addHero = function() {
-      $("#arena").show();
-      if(!arenaView.heroes.length) {
-        console.log("Adding first hero");
-        arenaView.heroes.push(Hero.all[0]);
-        heroView.arenaNames(arenaView.heroes[0].charName);
-      } else if(arenaView.heroes.length = 1) {
-        console.log("Adding second hero");
-        arenaView.heroes.push(Hero.all[0]);
-        heroView.arenaNames(arenaView.heroes[1].charName);
-      } else {
-        $('#centerArena').html('The arena has too many combatants! Please remove one before adding new Heroes to the arena.');
-      }
-    };
-
     arenaView.battle = function() {
       arenaView.heroes.forEach(function(h) {
         var s = ((h.strength + h.stamina + h.speed) / 3).toFixed(0);

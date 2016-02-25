@@ -2,12 +2,15 @@
     var heroController = {};
 
     heroController.index = function() {
-        console.log('heroController.index called...')
-        // load navigation
-
-        // hide arena section
-
-        // show hero section
+        console.log('heroController called lets test')
+        $('#hero').show();
+        //Check if one is in cache
+        if(localStorage.heroName) {
+            Hero.outputHero(localStorage.heroName);
+            heroView.heroPage();
+        } else {
+          heroView.empty();
+        }
 
     };
 

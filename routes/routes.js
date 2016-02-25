@@ -1,5 +1,5 @@
 page('/', indexController.index);
-page('/arena', arenaView.index);
+page('/arena', arenaController.index);
 page('/hero', heroController.index);
 
 page();

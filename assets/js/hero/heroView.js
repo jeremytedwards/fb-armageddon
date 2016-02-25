@@ -18,6 +18,10 @@
     })
   };
 
+  heroView.hideHero = function() {
+    $('#hero').hide();
+  }
+
   heroView.populateList = function() {
     console.log("Populate List");
     console.log(Hero.menu);
@@ -34,6 +38,24 @@
     console.log("Heroes appended.");
   }
 
+  heroView.empty = function() {
+    //Show intro
+    $('#fitbitnav').hide();
+    heroView.populateList();
+    $('#btmnav').hide();
+    console.log("Empty");
+    //Show create button
+  }
+
+  heroView.heroPage = function() {
+    //Show fitbit button
+    //Show create button
+    console.log("HeroPage");
+    $('#fitbitnav').show();
+    heroView.render();
+    heroView.populateList();
+  }
+
   heroView.wipe = function() {
     $('#head').html('');
     $('#torso').html('');
@@ -41,13 +63,6 @@
     $('#achievements').html('');
     $('.achlist').html('');
     $('.stats li').text('');
-  }
-
-  heroView.arenaNames = function() {
-    $('#contestant1').html(arenaView.heroes[0].charName);
-    if(arenaView.heroes[1]) {
-      $('#contestant2').html(arenaView.heroes[1].charName);
-    }
   }
 
   heroView.coronate = function(string) {

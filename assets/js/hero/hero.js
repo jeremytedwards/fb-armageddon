@@ -138,8 +138,6 @@
           })
         }).done(function() {
           localStorage.tableCheck = true;
-          console.log("Callback is being called now");
-          callback();
         });
       });
     } else {
@@ -161,6 +159,7 @@
       function(rows) {
         Hero.all = []; //Reset Hero.all to an empty array to prevent accumulation of old searches.
         Hero.loadAll(rows);
+        heroView.render();
         console.log("outputHero complete");
       });
       if(callback) {

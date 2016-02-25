@@ -1,6 +1,1 @@
-{
-"access_token": ACCESS_TOKEN,
-"expires_in": SECONDS,
-"expires_at": "20150829T10:20:25",
-"refresh_token": REFRESH_TOKEN
-}
+{"access_token":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NTYzODE0MDQsInNjb3BlcyI6InJwcm8gcmhyIHJsb2MgcnNsZSByYWN0Iiwic3ViIjoiNDhYRkI5IiwiYXVkIjoiMjI3R0QyIiwiaXNzIjoiRml0Yml0IiwidHlwIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNDU2Mzc3ODA0fQ.zKRA4bC72h1vEPvt9TsiETgBhrNhZgrTfySk2Id6hes","expires_in":3600,"refresh_token":"862db72da75e7a7a5ac12d4ed5d07b78e28a17aa5ba4168eb5384330ce649432","scope":"heartrate sleep location profile activity","token_type":"Bearer","user_id":"48XFB9","expires_at":"20160224T22:23:20"}

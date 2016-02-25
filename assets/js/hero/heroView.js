@@ -59,6 +59,13 @@
     });
   }
 
+  heroView.initRenderButton = function() {
+    $('#renderBut').on('click', function(e) {
+      e.preventDefault();
+      Hero.outputHero("Generic");
+    })
+  }
+
   heroView.heroPage = function() {
     //Show fitbit button
     //Show create button
@@ -66,7 +73,6 @@
     Hero.outputHero(localStorage.heroName);
     $('#fitbitnav').show();
     heroView.populateList();
-    heroView.render();
   }
 
   heroView.wipe = function() {

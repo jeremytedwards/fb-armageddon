@@ -7,6 +7,8 @@
         //Check if one is in cache
         if(localStorage.heroName) {
             heroView.heroPage();
+            heroView.initRenderButton();
+            Hero.populateTable(heroView.populateList());
         } else {
           heroView.empty();
           heroView.initCreateButton();

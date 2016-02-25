@@ -1412,7 +1412,7 @@
 		border: 0;
 		border-radius: 5px;
 		/* BOOKMARK */
-		background: #d52349;
+		background: #F54785;
 		color: #fff !important;
 		font-weight: 700;
 		outline: 0;
@@ -1427,7 +1427,7 @@
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background: #e53359;
+			background: #CC2A6F;
 		}
 
 		input[type="button"]:active,
@@ -1719,7 +1719,7 @@
 		.icon.featured {
 			position: relative;
 			display: inline-block;
-			background-color: #d52349;
+			background-color: #00AAB6;
 			width: 9em;
 			padding: 1.75em 0 0.75em 0;
 			border-top-left-radius: 5px;
@@ -1739,33 +1739,32 @@
 				position: absolute;
 				bottom: -1.95em;
 				left: 0;
-				border-top: solid 2em #d52349;
+				border-top: solid 2em #00AAB6;
 				border-left: solid 4.5em transparent;
 				border-right: solid 4.5em transparent;
 			}
 
 			.icon.featured.alt {
-				background-color: #252122;
+				background-color: #00AAB6;
 			}
 
 				.icon.featured.alt:after {
-					border-top-color: #252122;
+					border-top-color: #00AAB6;
 				}
 
 			.icon.featured.alt2 {
-				background-color: #827a7c;
+				background-color: #00AAB6;
 			}
 
 				.icon.featured.alt2:after {
-					border-top-color: #827a7c;
+					border-top-color: #00AAB6;
 				}
 
 /* Banner */
 
 	#banner {
-		background: #CCE8F4 url("../../images/fitbit-banner.png");
+		background: white url("../../images/fitbit-banner.png");
 		background-position: center center;
-		background-size: auto 100%;
 		background-repeat: no-repeat;
 		text-align: center;
 	}
@@ -1781,7 +1780,7 @@
 			}
 
 			#banner header p {
-				color: #d52349;
+				color: #F54785;
 				padding: 0;
 				font-style: normal;
 				margin: 0;
@@ -1939,6 +1938,11 @@
 					font-size: 1.25em;
 				}
 
+				.box p {
+					height: 370px;
+					overflow: scroll;
+				}
+
 		/* Button */
 
 			input[type="button"],
@@ -2082,13 +2086,13 @@
 					}
 
 					#toplinks > ul > li.current > a {
-						background-color: #d52349;
+						background-color: #F54785;
             color: #FFF;
 						font-weight: 700;
 					}
 
 					#toplinks > ul > li:hover > a, #toplinks > ul > li.active > a {
-						background-color: #e53359;
+						background-color: #CC2A6F;
 					}
 
 		/* Banner */

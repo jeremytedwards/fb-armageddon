@@ -15,6 +15,8 @@
         //    }
         //});
 
+        // Hero.menuBuilder();
+
         // load page
         if ( localStorage.heroName ) {
             heroView.heroPage();

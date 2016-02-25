@@ -104,7 +104,7 @@
     );
   };
 
-  Hero.menuBuilder = function() {
+  Hero.menuBuilder = function(callback) {
     Hero.menu = []; //Resets array.
     webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
       rows.forEach(function(item) {
@@ -112,6 +112,12 @@
         Hero.menu.push(hero);
       })
     });
+    console.log('Menu builder complete');
+    setTimeout(function() {
+      if(callback) {
+        callback();
+      };
+    },500);
   }
 
   //Pull static sample heroes from our JSON file, generate an array of Hero objects,
@@ -126,6 +132,7 @@
   };
 
   Hero.populateTable = function() {
+    Hero.menu = [];
     if(!localStorage.tableCheck) {
       Hero.menu = []; //Resets array;
       webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {

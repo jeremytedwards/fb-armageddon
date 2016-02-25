@@ -62,6 +62,7 @@
         //May need to add a record deletion function call here to prevent this
         //table from accumulating old data.
         UserData.addToTable(UserData.lifetime);
+        LevelBuilder.aggregate();
       });
     });
   }

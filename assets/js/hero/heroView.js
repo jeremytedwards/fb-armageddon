@@ -42,27 +42,30 @@
     $('.stats li').text('');
   }
 
-  heroView.arenaNames = function() {
-    $('#contestant1').html(arenaView.heroes[0].charName);
-    if(arenaView.heroes[1]) {
-      $('#contestant2').html(arenaView.heroes[1].charName);
-    }
-  }
-
   heroView.coronate = function(string) {
     $('#contestant1').hide();
     $('#contestant2').hide();
-    $('#centerArena').toggleClass("victorname");
-    $('#centerArena').html(string);
+    $('#centerArena').hide();
+    $('#victoryName').show();
+    $('#victoryName').html(string);
   }
 
-  heroView.resetArena = function() {
+  heroView.setArenaLeft = function() {
+    $("#arena").show();
+    arenaView.heroes.push(Hero.all[0]);
+    $('#victoryName').hide();
+    $('#centerArena').show();
     $('#contestant1').show();
-    $('#contestant1').html('')
-    $('#centerArena').html('vs');
-    $('#centerArena').toggleClass("victorname");
+    $('#contestant1').html(Hero.all[0].charName);
+  }
+
+  heroView.setArenaRight = function() {
+    $("#arena").show();
+    arenaView.heroes.push(Hero.all[0]);
+    $('#victoryName').hide();
+    $('#centerArena').show();
     $('#contestant2').show();
-    $('#contestant2').html('');
+    $('#contestant2').html(Hero.all[0].charName);
   }
 
   function getRandomInt(min, max) {

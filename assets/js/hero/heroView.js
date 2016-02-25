@@ -26,6 +26,7 @@
 
   heroView.populateList = function() {
     console.log("Populate List");
+    $('#herolist').html('');
     console.log(Hero.menu);
     Hero.menu.forEach(function(hero) {
       console.log(hero.charName);
@@ -51,8 +52,8 @@
   }
 
   heroView.initCreateButton = function() {
-    $('#bigCr').on('click', function() {
-
+    $('#bigCr').on('click', function(e) {
+      e.preventDefault();
       Hero.createHero("Generic");
       heroController.index();
     });

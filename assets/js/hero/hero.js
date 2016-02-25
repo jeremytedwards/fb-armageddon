@@ -103,6 +103,7 @@
 
   Hero.menuBuilder = function() {
     Hero.menu = []; //Resets array.
+    console.log("Menu Builder");
     webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
       rows.forEach(function(item) {
         var hero = new Hero(item);

@@ -15,7 +15,8 @@
       "redirect_uri": "http://localhost:3000/fitbit/auth",
       "response_type": "code",
       "scope": "activity nutrition profile settings sleep social weight heartrate",
-      "state": "3(#0/!~"
+      "state": "3(#0/!~",
+      "prompt": "consent"
     }
   }
 }

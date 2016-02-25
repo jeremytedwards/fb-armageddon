@@ -136,7 +136,9 @@
         }).done(function() {
           localStorage.tableCheck = true;
           console.log("Callback is being called now");
-          callback();
+          if(callback) {
+            callback();
+          }
         });
       });
     } else {

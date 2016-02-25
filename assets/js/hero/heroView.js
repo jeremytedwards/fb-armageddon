@@ -112,7 +112,6 @@
   heroView.initArenaRightButton = function() {
     $('#arenaRight-btn').on('click', function(e) {
       e.preventDefault();
-
       // Add current hero name to left of area
       arenaView.setArenaRight();
 
@@ -191,7 +190,9 @@
 
   heroView.renderPlayerNav = function() {
     $('#arenaLeft-btn').show();
+    heroView.initArenaLeftButton();
     $('#arenaRight-btn').show();
+    heroView.initArenaLeftButton();
 
     console.log("heroView.renderPlayerNav called...");
   }

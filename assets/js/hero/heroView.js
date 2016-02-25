@@ -87,6 +87,7 @@
     $('#hero-stats').hide();
     $('#player-nav').hide();
     $('#fitbit-nav').hide();
+    $('.herocontainer img').hide();
 
     console.log("heroView.hideAllHeroItems called...");
   }
@@ -236,7 +237,7 @@
     $('#hero-list').show();
 
     // render functions
-    heroView.renderHero();
+    Hero.outputHero(localStorage.heroName,heroView.renderHero);
     heroView.renderPlayerNav();
     heroView.renderFitbitNav();
     heroView.renderStats();
@@ -251,6 +252,7 @@
       e.preventDefault();
       localStorage.heroName = $(this).text();
       console.log('this is in lc' + localStorage.heroName);
+      Hero.outputHero(localStorage.heroName,heroView.renderHero);
     });
   }
 

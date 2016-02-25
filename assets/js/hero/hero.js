@@ -169,9 +169,11 @@
         Hero.loadAll(rows);
         console.log("outputHero complete");
       });
-      if(callback) {
-        callback();
-      };
+      setTimeout(function() {
+        if(callback) {
+          callback();
+        };
+      },500);
   };
 
   //Methods for integrating achievement system.

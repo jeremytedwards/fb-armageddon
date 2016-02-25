@@ -97,11 +97,14 @@
         {
           'sql': 'drop table Heroes;',
         }
-      ]
+      ],
+      function() {
+        localStorage.removeItem('tableCheck');
+      }
     );
   };
 
-  Hero.menuBuilder = function() {
+  Hero.menuBuilder = function(callback) {
     Hero.menu = []; //Resets array.
     webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
       rows.forEach(function(item) {
@@ -109,6 +112,12 @@
         Hero.menu.push(hero);
       })
     });
+    console.log('Menu builder complete');
+    setTimeout(function() {
+      if(callback) {
+        callback();
+      };
+    },500);
   }
 
   //Pull static sample heroes from our JSON file, generate an array of Hero objects,
@@ -122,7 +131,8 @@
     })
   };
 
-  Hero.populateTable = function(callback) {
+  Hero.populateTable = function() {
+    Hero.menu = [];
     if(!localStorage.tableCheck) {
       Hero.menu = []; //Resets array;
       webDB.execute('SELECT * FROM Heroes ORDER BY charName ASC', function(rows) {
@@ -136,9 +146,6 @@
         }).done(function() {
           localStorage.tableCheck = true;
           console.log("Callback is being called now");
-          if(callback) {
-            callback();
-          }
         });
       });
     } else {

@@ -1,3 +1,5 @@
+//var fs = require( 'fs' );
+
 (function(module) {
     var resetController = {};
 
@@ -16,7 +18,7 @@
         Hero.massacre();
         UserData.dumpUsers();
 
-        fs.writeFile( './fb-token.json', tokenResetString);
+        //fs.writeFile( './fb-token.json', tokenResetString);
 
         $('#hero').hide();
         $('#arena').hide();

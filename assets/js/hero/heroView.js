@@ -48,7 +48,7 @@
       var appStr = '<li style="white-space: nowrap;"><a href="#" class="hero-menu">' + hero.charName + '</a></li>';
       $('#saved-heros').append(appStr);
 
-      console.log(appStr);
+      // console.log(appStr);
     });
 
     console.log("heroView.populateHeroList called...");
@@ -142,6 +142,7 @@
   }
 
   heroView.initFitbitNavCreateButton = function() {
+    $('#ch-btn').off('click');
     $('#ch-btn').one('click', function(e) {
       e.preventDefault();
 

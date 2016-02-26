@@ -960,6 +960,11 @@
 
 	@media screen and (max-width: 736px) {
 
+
+		.herocontainer {
+			text-align: center;
+		}
+
 		.row > * {
 			padding: 20px 0 0 20px;
 		}
@@ -2063,6 +2068,53 @@
 
 		/* Nav */
 
+			.dropotron {
+				border-radius: 5px;
+				background-color: #252122 ;
+				background-color: rgba(34, 30, 31, 0.98);
+				padding: 1.25em 1.5em 1.25em 1.5em;
+				font-style: italic;
+				min-width: 13em;
+				box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.5);
+				text-align: left;
+				margin-top: -1.25em;
+				margin-left: -1px;
+			}
+
+			.dropotron a, .dropotron span {
+				color: #aaa;
+				text-decoration: none;
+				-moz-transition: color .25s ease-in-out;
+				-webkit-transition: color .25s ease-in-out;
+				-ms-transition: color .25s ease-in-out;
+				transition: color .25s ease-in-out;
+			}
+
+			.dropotron li {
+				padding: 0.25em 0 0.25em 0;
+			}
+
+			.dropotron li:hover > a, .dropotron li:hover > span {
+				color: #fff;
+			}
+
+			.dropotron.level-0 {
+				margin-top: 2em;
+			}
+
+			.dropotron.level-0:before {
+				content: '';
+				display: block;
+				position: absolute;
+				left: 50%;
+				margin-left: -10px;
+				top: -9px;
+				border-left: solid 10px transparent;
+				border-right: solid 10px transparent;
+				border-bottom: solid 10px #252122 ;
+				border-bottom-color: rgba(34, 30, 31, 0.98);
+			}
+
 			#toplinks > ul {
 				margin: 0;
 			}
@@ -2088,7 +2140,7 @@
 
 					#toplinks > ul > li.current > a {
 						background-color: #F54785;
-            color: #FFF;
+            			color: #FFF;
 						font-weight: 700;
 					}
 

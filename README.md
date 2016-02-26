@@ -1,26 +1,35 @@
-# fb-armageddon
-A fitness tracker based application for gamifying your fitness data
+# FITBIT Bearmageddon
+![FB Bearmageddon logo](http://postimg.org/image/3pv9d1zdl/logo.png)
 
-# Working with this project
-## First time:
-  1) Create a folder on your machine.
-  2) Clone the project down
-  3) Checkout the feature branch, <feature>
+[![Fitbit Bearmageddon Deps Status](https://gemnasium.com/jeremytedwards/fb-armageddon.png)](https://gemnasium.com/jeremytedwards/fb-armageddon)
+[![Stories in Ready](https://trello.com/b/wUAekgcF/codefellows-301-fb-armageddon)
 
-  $ mkdir fb-armageddon
-  $ git clone https://github.com/jeremytedwards/fb-armageddon.git
-  $ git checkout <feature>
-  
-## Daily:
-  1) Go to your root, checkout master
-  2) Pull the latest code down
-  3) Checkout a feature branch, <feature>
-  4) Commit your changes
-  5) Push your feature origin by 11:59 
-  
-  $ git checkout master
-  $ git pull origin master
-  $ git checkout -b <feature>
-    (make changes)
-  $ git commit -m "meaningful message"
-  $ git push origin <feature>
+* A fitness tracker based application for gamifying your fitness data.
+* Quickly **generate your data** and have it **up and running**.
+* https://fbarmageddon.herokuapp.com
+
+
+## Welcome to Fitbit Bearmageddon
+
+This a game where you use your **Fitbit data** to build a Hero and wage war against other Heroes in the Arena. How far will your Hero go?
+
+## What's a Hero?
+
+A Hero is a character whose attributes consist of your and other clan members' Fitbit data. To increase your Hero's abilities, recruit members to your Hero's clan.
+
+## Create. Sync. Grow.
+
+Create one or many new Heroes and begin syncing your FitBit data to them. Invite your friends to join your Hero's quest and grow their abilities
+
+
+## License
+
+The MIT License (MIT)
+
+Copyright &copy; 2016 Four Fellows Coding, Inc
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

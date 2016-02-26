@@ -8,6 +8,8 @@
     }
 
     arenaView.battle = function() {
+      // arenaView.heroes = arenaView.heroes.slice((arenaView.heroes.length-2), (arenaView.heroes.length-1));
+      console.log(arenaView.heroes);
         arenaView.heroes.forEach(function(h) {
             var s = ((h.strength + h.stamina + h.speed) / 3).toFixed(0);
             h.level = parseInt(s);
@@ -53,6 +55,7 @@
         $('#contestant').show();
         $('#contestant1').html(Hero.all[0].charName);
 
+
         console.log("arenaView.setArenaLeft called...");
     }
 
@@ -65,6 +68,7 @@
         $('#victoryName').hide();
         $('#contestant').show();
         $('#contestant2').html(Hero.all[0].charName);
+
 
         console.log("arenaView.setArenaRight called...");
     }
@@ -94,6 +98,7 @@
     arenaView.initBattle = function() {
         $('#battle-btn').on('click', function(e) {
             e.preventDefault();
+            console.log("INIT BATTLE");
 
             // Start battle - arenaView.battle
             arenaView.battle();

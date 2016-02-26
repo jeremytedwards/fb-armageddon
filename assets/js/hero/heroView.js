@@ -1,6 +1,7 @@
 (function(module) {
 
   var heroView = {};
+  var checkToken = false;
 
   heroView.renderHero = function() {
     Hero.all.forEach(function(hero) {
@@ -99,11 +100,12 @@
   /**  Button Handlers **/
 
   heroView.initArenaLeftButton = function() {
-    $('#arenaLeft-btn').on('click', function(e) {
+    $('#arenaLeft-btn').one('click', function(e) {
       e.preventDefault();
 
       // Add current hero name to left of area
       arenaView.setArenaLeft();
+      arenaView.initBattle();
 
       // TODO: jump to area on click
       //location.href="/arena#arena";
@@ -113,10 +115,11 @@
   }
 
   heroView.initArenaRightButton = function() {
-    $('#arenaRight-btn').on('click', function(e) {
+    $('#arenaRight-btn').one('click', function(e) {
       e.preventDefault();
       // Add current hero name to left of area
       arenaView.setArenaRight();
+      arenaView.initCloseArena();
 
       // TODO: jump to area on click
       //location.href="/arena#arena";
@@ -192,12 +195,15 @@
   }
 
   heroView.renderPlayerNav = function() {
-    $('#arenaLeft-btn').show();
-    heroView.initArenaLeftButton();
-    $('#arenaRight-btn').show();
-    heroView.initArenaLeftButton();
-
-    console.log("heroView.renderPlayerNav called...");
+    if (checkToken === false) {
+      $('#arenaLeft-btn').show();
+      heroView.initArenaLeftButton();
+      $('#arenaRight-btn').show();
+      heroView.initArenaRightButton();
+      console.log("heroView.renderPlayerNav called...");
+      checkToken = true;
+      console.log("Check token is true");
+    }
   }
   /**  Page Views **/
 
@@ -206,7 +212,9 @@
     // show hero section
     $('#hero').show();
 
+    $('#createbox').show();
     $('#crform').show();
+    $('#herobox').hide();
 
     // show #create-btn
     $('#create-btn').show();
@@ -227,9 +235,10 @@
   heroView.heroPage = function() {
     heroView.hideAllHeroItems();
     // Hide create form
-    $('#crform').hide();
+    $('#createbox').hide();
     // show hero section
     $('#hero').show();
+    $('#herobox').show();
 
     // show #player-nav
     $('#player-nav').show();

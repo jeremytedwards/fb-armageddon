@@ -12,7 +12,7 @@
       "tokenPath": "/oauth2/token"
     },
     "authorization_uri": {
-      "redirect_uri": "http://fbarmageddon.herokuapp.com/fitbit/auth",
+      "redirect_uri": "https://fbarmageddon.herokuapp.com/fitbit/auth",
       "response_type": "code",
       "scope": "activity profile sleep heartrate location",
       "state": "FB-bearmageddon",

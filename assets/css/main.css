@@ -87,6 +87,7 @@
 		margin-bottom: 2em;
 	}
 
+
 /* Containers */
 
 	.container {
@@ -1237,12 +1238,13 @@
 	}
 
 	a {
-		color: #d52349;
-		text-decoration: underline;
+		color: #00AAB6;
+		font-size; 1.2em;
 	}
 
 		a:hover {
-			text-decoration: none;
+			text-decoration: underline;;
+			font-weight: bolder;
 		}
 
 	br.clear {
@@ -1400,6 +1402,8 @@
 
 /* Button */
 
+
+
 	input[type="button"],
 	input[type="submit"],
 	input[type="reset"],
@@ -1444,6 +1448,7 @@
 		button.alt,
 		.button.alt {
 			background: #252122;
+			margin-bottom: 1em;
 		}
 
 			input[type="button"].alt:hover,
@@ -1946,6 +1951,10 @@
 
 		/* Button */
 
+			#fitbit-nav a {
+				margin-bottom: .4em;
+			}
+
 			input[type="button"],
 			input[type="submit"],
 			input[type="reset"],
@@ -1953,6 +1962,7 @@
 			.button {
 				font-size: 1.1em;
 				padding: 0.65em 1.5em 0.65em 1.5em;
+				margin-bottom: 0.4em;
 			}
 
 				input[type="button"].big,

@@ -163,7 +163,6 @@
       $('#fb-data-btn').hide();
       $('#ch-btn').show();
 
-      heroView.renderStats();
       console.log("fb-btn clicked...");
     });
   }

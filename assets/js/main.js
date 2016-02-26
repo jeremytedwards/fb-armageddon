@@ -52,13 +52,15 @@
 
 		// Off-Canvas Navigation.
 
-			// Title Bar.
+			// Title Bar. - Commented out because we don't like how it performs.
+			/*
 				$(
 					'<div id="titleBar">' +
 						'<a href="#navPanel" class="toggle"></a>' +
 					'</div>'
 				)
 					.appendTo($body);
+			*/
 
 			// Navigation Panel.
 				$(

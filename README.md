@@ -1,8 +1,7 @@
 # FITBIT Bearmageddon
-![FB Bearmageddon logo](http://postimg.org/image/3pv9d1zdl/logo.png)
+![FB Bearmageddon logo](http://s28.postimg.org/ty6e2fjh9/logo.png)
 
 [![Fitbit Bearmageddon Deps Status](https://gemnasium.com/jeremytedwards/fb-armageddon.png)](https://gemnasium.com/jeremytedwards/fb-armageddon)
-[![Stories in Ready](https://trello.com/b/wUAekgcF/codefellows-301-fb-armageddon)
 
 * A fitness tracker based application for gamifying your fitness data.
 * Quickly **generate your data** and have it **up and running**.

@@ -98,7 +98,7 @@
   /**  Button Handlers **/
 
   heroView.initArenaLeftButton = function() {
-    $('#arenaLeft-btn').on('click', function(e) {
+    $('#arenaLeft-btn').one('click', function(e) {
       e.preventDefault();
 
       // Add current hero name to left of area
@@ -112,7 +112,7 @@
   }
 
   heroView.initArenaRightButton = function() {
-    $('#arenaRight-btn').on('click', function(e) {
+    $('#arenaRight-btn').one('click', function(e) {
       e.preventDefault();
       // Add current hero name to left of area
       arenaView.setArenaRight();
@@ -125,19 +125,20 @@
   }
 
   heroView.initHeroCreateButton = function() {
-    $('#create-btn').on('click', function(e) {
+    $('#create-btn').one('click', function(e) {
       e.preventDefault();
 
       // TODO: refactor prompt for hero name create hero generic
       localStorage.heroName = $('#heroCreate').val();
       Hero.createHero(localStorage.heroName);
       heroView.heroPage();
+      // console.log("create second hero");
       console.log("create-btn clicked...");
     });
   }
 
   heroView.initFitbitNavCreateButton = function() {
-    $('#ch-btn').on('click', function(e) {
+    $('#ch-btn').one('click', function(e) {
       e.preventDefault();
 
       localStorage.removeItem('heroName');
@@ -148,7 +149,7 @@
   }
 
   heroView.initFitbitNavSync = function() {
-    $('#fb-data-btn').on('click', function(e) {
+    $('#fb-data-btn').one('click', function(e) {
       e.preventDefault();
 
       UserData.fetchJSON();
@@ -164,7 +165,7 @@
   }
 
   heroView.initFitbitNavAddFitbit = function() {
-    $('#fb-btn').on('click', function(e) {
+    $('#fb-btn').one('click', function(e) {
 
       // Update button states
       $('#fb-btn').show();
@@ -202,6 +203,7 @@
 
   heroView.emptyPage = function() {
     heroView.hideAllHeroItems();
+    // Hero.all = [];
     // show hero section
     $('#hero').show();
 
@@ -253,11 +255,10 @@
   }
 
   heroView.heroSelect = function() {
-    $('.hero-menu').on('click', function(e) {
+    $('.hero-menu').one('click', function(e) {
       e.preventDefault();
       localStorage.heroName = $(this).text();
       console.log('this is in lc' + localStorage.heroName);
-      // Hero.outputHero(localStorage.heroName,heroView.renderHero);
       heroView.heroPage();
     });
   }

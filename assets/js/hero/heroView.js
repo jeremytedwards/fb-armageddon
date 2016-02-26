@@ -48,7 +48,7 @@
       var appStr = '<li style="white-space: nowrap;"><a href="#" class="hero-menu">' + hero.charName + '</a></li>';
       $('#saved-heros').append(appStr);
 
-      console.log(appStr);
+      // console.log(appStr);
     });
 
     console.log("heroView.populateHeroList called...");
@@ -100,7 +100,7 @@
   /**  Button Handlers **/
 
   heroView.initArenaLeftButton = function() {
-    $('#arenaLeft-btn').one('click', function(e) {
+    $('#arenaLeft-btn').on('click', function(e) {
       e.preventDefault();
 
       // Add current hero name to left of area
@@ -115,7 +115,7 @@
   }
 
   heroView.initArenaRightButton = function() {
-    $('#arenaRight-btn').one('click', function(e) {
+    $('#arenaRight-btn').on('click', function(e) {
       e.preventDefault();
       // Add current hero name to left of area
       arenaView.setArenaRight();
@@ -142,6 +142,7 @@
   }
 
   heroView.initFitbitNavCreateButton = function() {
+    $('#ch-btn').off('click');
     $('#ch-btn').one('click', function(e) {
       e.preventDefault();
 

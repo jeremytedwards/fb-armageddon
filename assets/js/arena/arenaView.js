@@ -39,8 +39,8 @@
 
     arenaView.coronate = function(string) {
         $('#contestant').hide();
-        $('#victoryName').show();
-        $('#victoryName').html(string);
+        $('#victory-name').show();
+        $('#victory-name').html(string);
 
         console.log("arenaView.coronate called...");
     }
@@ -51,7 +51,7 @@
 
         // Set data elements
         arenaView.heroes.push(Hero.all[0]);
-        $('#victoryName').hide();
+        $('#victory-name').hide();
         $('#contestant').show();
         $('#contestant1').html(Hero.all[0].charName);
 
@@ -65,7 +65,7 @@
 
         // Set data elements
         arenaView.heroes.push(Hero.all[0]);
-        $('#victoryName').hide();
+        $('#victory-name').hide();
         $('#contestant').show();
         $('#contestant2').html(Hero.all[0].charName);
 
@@ -117,13 +117,22 @@
             e.preventDefault();
 
             // Update button states
+            arenaView.resetArena();
             $('#arena').hide();
-
-            // Load hero page??
-
 
             console.log("battle-btn clicked...");
         });
+    }
+
+    arenaView.resetArena = function() {
+      arenaView.victor = {};
+      arenaView.heroes = [];
+      $('#battlenames').show();
+      $('#victory-name').hide();
+      $('#videoWrapper').hide();
+      $('#contestant1').html('');
+      $('#contestant2').html('');
+      $('#battle-btn').show();
     }
 
 

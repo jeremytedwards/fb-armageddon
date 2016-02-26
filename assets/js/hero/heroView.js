@@ -4,14 +4,16 @@
   var checkToken = false;
 
   heroView.renderHero = function() {
-    Hero.all.forEach(function(hero) {
-      localStorage.heroName = hero.charName;
+    setTimeout(function() {
+      Hero.all.forEach(function(hero) {
+        localStorage.heroName = hero.charName;
 
-      $('#bearhead').html('<img src="/images/' + hero.stamina + '-head.png" />');
-      $('#torso').html('<img src="/images/' + hero.strength + '-torso.png" />');
-      $('#weapon').html('<img src="/images/' + hero.speed + '-weapon.png" />');
+        $('#bearhead').html('<img src="/images/' + hero.stamina + '-head.png" />');
+        $('#torso').html('<img src="/images/' + hero.strength + '-torso.png" />');
+        $('#weapon').html('<img src="/images/' + hero.speed + '-weapon.png" />');
 
-    });
+      });
+    },1000);
 
     console.log("heroView.renderHero called...");
   }
@@ -23,7 +25,7 @@
         $('.strength').html(hero.strength);
         $('.speed').html(hero.speed);
       })
-    },500);
+    },1000);
     console.log("heroView.renderStats called...");
   }
 

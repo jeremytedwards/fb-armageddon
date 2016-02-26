@@ -98,7 +98,7 @@
   /**  Button Handlers **/
 
   heroView.initArenaLeftButton = function() {
-    $('#arenaLeft-btn').on('click', function(e) {
+    $('#arenaLeft-btn').one('click', function(e) {
       e.preventDefault();
 
       // Add current hero name to left of area
@@ -112,7 +112,7 @@
   }
 
   heroView.initArenaRightButton = function() {
-    $('#arenaRight-btn').on('click', function(e) {
+    $('#arenaRight-btn').one('click', function(e) {
       e.preventDefault();
       // Add current hero name to left of area
       arenaView.setArenaRight();
@@ -125,30 +125,31 @@
   }
 
   heroView.initHeroCreateButton = function() {
-    $('#create-btn').on('click', function(e) {
+    $('#create-btn').one('click', function(e) {
       e.preventDefault();
 
       // TODO: refactor prompt for hero name create hero generic
       localStorage.heroName = $('#heroCreate').val();
       Hero.createHero(localStorage.heroName);
-      heroView.heroPage();
+      heroController.index();
+      $('#heroCreate').val('');
       console.log("create-btn clicked...");
     });
   }
 
   heroView.initFitbitNavCreateButton = function() {
-    $('#ch-btn').on('click', function(e) {
+    $('#ch-btn').one('click', function(e) {
       e.preventDefault();
 
       localStorage.removeItem('heroName');
 
-      heroView.emptyPage();
+      heroController.index();
       console.log("ch-btn clicked...");
     });
   }
 
   heroView.initFitbitNavSync = function() {
-    $('#fb-data-btn').on('click', function(e) {
+    $('#fb-data-btn').one('click', function(e) {
       e.preventDefault();
 
       UserData.fetchJSON();
@@ -158,20 +159,18 @@
       $('#fb-data-btn').hide();
       $('#ch-btn').show();
 
-      //heroView.heroPage();
       console.log("fb-btn clicked...");
     });
   }
 
   heroView.initFitbitNavAddFitbit = function() {
-    $('#fb-btn').on('click', function(e) {
+    $('#fb-btn').one('click', function(e) {
 
       // Update button states
       $('#fb-btn').show();
       $('#fb-data-btn').show();
       $('#ch-btn').show();
 
-      //heroView.heroPage();
       console.log("fb-btn clicked...");
     });
   }
@@ -201,6 +200,9 @@
   /**  Page Views **/
 
   heroView.emptyPage = function() {
+    Hero.all = [];
+    Hero.menu = [];
+
     heroView.hideAllHeroItems();
     // show hero section
     $('#hero').show();
@@ -224,6 +226,9 @@
   }
 
   heroView.heroPage = function() {
+    Hero.all = [];
+    Hero.menu = [];
+
     heroView.hideAllHeroItems();
     // Hide create form
     $('#crform').hide();
@@ -253,12 +258,11 @@
   }
 
   heroView.heroSelect = function() {
-    $('.hero-menu').on('click', function(e) {
+    $('.hero-menu').one('click', function(e) {
       e.preventDefault();
       localStorage.heroName = $(this).text();
       console.log('this is in lc' + localStorage.heroName);
-      // Hero.outputHero(localStorage.heroName,heroView.renderHero);
-      heroView.heroPage();
+      heroController.index();
     });
   }
 

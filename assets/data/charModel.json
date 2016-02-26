@@ -2,33 +2,41 @@
   {
     "charName": "Garruk",
     "created": "2016-02-19",
-    "strength": "9",
-    "speed": "9",
-    "stamina": "9",
+    "strength": "2",
+    "speed": "2",
+    "stamina": "2",
     "achievements": []
   },
   {
     "charName": "Cortana",
     "created": "2016-02-19",
-    "strength": "10",
-    "speed": "3",
-    "stamina": "2",
+    "strength": "4",
+    "speed": "4",
+    "stamina": "4",
     "achievements": []
   },
   {
     "charName": "Han Solo",
     "created": "2016-02-19",
-    "strength": "11",
-    "speed": "21",
-    "stamina": "16",
+    "strength": "6",
+    "speed": "6",
+    "stamina": "6",
     "achievements": []
   },
   {
     "charName": "Zelda",
     "created": "2016-02-19",
-    "strength": "9",
-    "speed": "2",
-    "stamina": "9",
+    "strength": "8",
+    "speed": "8",
+    "stamina": "8",
+    "achievements": []
+  },
+  {
+    "charName": "Godzilla",
+    "created": "2016-02-19",
+    "strength": "10",
+    "speed": "10",
+    "stamina": "10",
     "achievements": []
   }
 ]

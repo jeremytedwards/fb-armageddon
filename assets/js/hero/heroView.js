@@ -13,7 +13,7 @@
         $('#weapon').html('<img src="/images/' + hero.speed + '-weapon.png" />');
 
       });
-    },1500);
+    },500);
 
     console.log("heroView.renderHero called...");
   }
@@ -25,19 +25,21 @@
         $('.strength').html(hero.strength);
         $('.speed').html(hero.speed);
       })
-    },1500);
+    },500);
     console.log("heroView.renderStats called...");
   }
 
   heroView.renderAchievements = function() {
     $('.achievement-list').html('');
-    Hero.all.forEach(function(hero) {
-      hero.achievements.forEach(function(a) {
-        $('#hero-achievements ul').html('');
-        $('#hero-achievements ul').append('<li><img src="/images/' + a.achId + '-achievements.png" class="achievement" title="' + a.achText + '"/></li>');
-        $('.achievement-list').append(a.achName + ', ');
-      });
-    })
+    $('#hero-achievements ul').html('');
+    setTimeout(function() {
+      Hero.all.forEach(function(hero) {
+        hero.achievements.forEach(function(a) {
+          $('#hero-achievements ul').append('<li><img src="/images/' + a.achId + '-achievements.png" class="achievement" title="' + a.achText + '"/></li>');
+          $('.achievement-list').append(a.achName + ', ');
+        });
+      })
+    },500);
     //Reset Hero.achievements
     console.log("heroView.renderAchievements called...");
   }

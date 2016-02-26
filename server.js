@@ -46,7 +46,7 @@ app.get('/fitbit/auth', function (req, res, next) {
         if ( err ) return next( err );
         persist.write( tfile, token, function( err ) {
             if ( err ) return next( err );
-            res.redirect( '/hero' );
+            res.redirect( '/hero#hero' );
         });
 
     });

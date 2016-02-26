@@ -13,7 +13,7 @@
         $('#weapon').html('<img src="/images/' + hero.speed + '-weapon.png" />');
 
       });
-    },1000);
+    },1500);
 
     console.log("heroView.renderHero called...");
   }
@@ -25,7 +25,7 @@
         $('.strength').html(hero.strength);
         $('.speed').html(hero.speed);
       })
-    },1000);
+    },1500);
     console.log("heroView.renderStats called...");
   }
 

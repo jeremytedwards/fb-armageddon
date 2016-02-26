@@ -7,12 +7,14 @@
 <html>
 	<head>
 		<title>FitBit BEARMAGEDDON</title>
-
+		
 		<meta charset="utf-8" />
+		<link rel= "shortcut icon" href="images/bearicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+
 		<link rel="stylesheet" type='text/css' href="assets/css/main.css" />
-		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Cinzel:900' >
+		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Cinzel:900'>
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body class="homepage">
@@ -103,10 +105,10 @@
                                 <div class="row">
                                     <div class="12u 12u(mobile)">
                                         <section class="box">
-                                            <section class="contestant">
-                                                <div id="contestant1">Hero 1</div>
-                                                <div id="centerArena">vs</div>
-                                                <div id="contestant2">Hero 2</div>
+                                            <section id="battlenames">
+                                                <div id="contestant1" class="contestant">Hero 1</div>
+                                                <div id="centerArena" class="contestant">vs</div>
+                                                <div id="contestant2" class="contestant">Hero 2</div>
                                             </section>
 
                                             <section class="victorname" id="victoryName">
@@ -139,17 +141,20 @@
 
                                 <div class="row">
                                     <div class="8u 12u(mobile)">
-                                        <section class="box">
+                                        <section class="box" id="createbox">
+																					<div align="center">
+																							<form id="crform">
+																								<input type="text" id="heroCreate" placeholder="Enter Hero Name"></input>
+																							</form>
+																							<a href="#" class="button alt" id="create-btn">Create Hero</a>
+																					</div>
+																				</section>
+																				<section class="box">
                                             <section class="herocontainer">
                                                 <!-- Show create-btn or renderHero -->
 
                                                 <!-- create-btn -->
-                                                <div align="center">
-																										<form id="crform">
-																											<input type="text" id="heroCreate" placeholder="Enter Hero Name"></input>
-																										</form>
-                                                    <a href="#" class="button alt" id="create-btn">Create Hero</a>
-                                                </div>
+
 
                                                 <!-- renderHero -->
                                                 <div class="8u 12u(mobile) bearhead" id="bearhead"></div>
@@ -158,8 +163,8 @@
 
                                                 <!-- start player-nav-->
                                                 <div class="8u 12u mobile" id="player-nav">
-                                                    <a href="#" class="button btmbutton alt" id="arenaLeft-btn">Add Player 1</a>
-                                                    <a href="#" class="button btmbutton alt" id="arenaRight-btn">Add Player 2</a>
+                                                    <a href="/arena#arena" class="button btmbutton alt" id="arenaLeft-btn">Add Player 1</a>
+                                                    <a href="/arena#arena" class="button btmbutton alt" id="arenaRight-btn">Add Player 2</a>
                                                 </div>
 
                                             </section>

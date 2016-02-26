@@ -18,12 +18,12 @@
 
             if(a.level > b.level) {
                 arenaView.victor = a;
-                heroView.coronate(a.charName + ' is the victor.');
+                arenaView.coronate(a.charName + ' is the victor.');
             } else if(b.level > a.level) {
                 arenaView.victor = b;
-                heroView.coronate(b.charName + ' is the victor.');
+                arenaView.coronate(b.charName + ' is the victor.');
             } else {
-                heroView.coronate('The battle was a draw.');
+                arenaView.coronate('The battle was a draw.');
             }
         });
 
@@ -31,24 +31,6 @@
         arenaView.heroes = [];
 
         console.log('arenaView.battle called....');
-    }
-
-    arenaView.addHero = function() {
-        if(!arenaView.heroes.length) {
-            console.log("Adding first hero");
-
-            arenaView.heroes.push(Hero.all[0]);
-            heroView.arenaNames(arenaView.heroes[0].charName);
-        } else if(arenaController.heroes.length = 1) {
-            console.log("Adding second hero");
-
-            arenaView.heroes.push(Hero.all[0]);
-            heroView.arenaNames(arenaView.heroes[1].charName);
-        } else {
-            $('#centerArena').html('The arena has too many combatants! Please remove one before adding new Heroes to the arena.');
-        }
-
-        console.log('arenaView.addHero called....');
     }
 
     arenaView.coronate = function(string) {
@@ -116,6 +98,7 @@
             arenaView.displayVid();
 
             // Update button states
+            $('#battlenames').hide();
             $('#battle-btn').hide();
 
             console.log("battle-btn clicked...");

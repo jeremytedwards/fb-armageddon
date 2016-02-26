@@ -1763,8 +1763,9 @@
 /* Banner */
 
 	#banner {
-		background: white url("../../images/fitbit-banner.png");
+		background: white url("/images/fitbit-banner.png");
 		background-position: center center;
+		background-size: cover;
 		background-repeat: no-repeat;
 		text-align: center;
 	}

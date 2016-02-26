@@ -83,6 +83,7 @@
         //table from accumulating old data.
         UserData.addToTable(UserData.lifetime);
         LevelBuilder.aggregate();
+        heroView.renderStats();
       });
     });
   }

@@ -27,6 +27,7 @@
   }
 
   heroView.renderAchievements = function() {
+    $('.achievement-list').html('');
     Hero.all.forEach(function(hero) {
       hero.achievements.forEach(function(a) {
         $('#hero-achievements ul').html('');
@@ -34,7 +35,7 @@
         $('.achievement-list').append(a.achName + ', ');
       });
     })
-
+    //Reset Hero.achievements
     console.log("heroView.renderAchievements called...");
   }
 

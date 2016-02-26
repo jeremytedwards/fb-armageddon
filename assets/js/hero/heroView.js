@@ -16,20 +16,22 @@
   }
 
   heroView.renderStats = function() {
-    Hero.all.forEach(function(hero) {
-      $('.stamina').html(hero.stamina);
-      $('.strength').html(hero.strength);
-      $('.speed').html(hero.speed);
-    })
-
+    setTimeout(function() {
+      Hero.all.forEach(function(hero) {
+        $('.stamina').html(hero.stamina);
+        $('.strength').html(hero.strength);
+        $('.speed').html(hero.speed);
+      })
+    },500);
     console.log("heroView.renderStats called...");
   }
 
   heroView.renderAchievements = function() {
     Hero.all.forEach(function(hero) {
       hero.achievements.forEach(function(a) {
+        $('#hero-achievements ul').html('');
         $('#hero-achievements ul').append('<li><img src="/images/' + a.achId + '-achievements.png" class="achievement" title="' + a.achText + '"/></li>');
-        $('.achivement-list').append(a.achName + ', ');
+        $('.achievement-list').append(a.achName + ', ');
       });
     })
 
@@ -209,6 +211,8 @@
     $('#create-btn').show();
     // show #intro
     $('#hero-instructions').show();
+    // hide #hero-achievements
+    $('#hero-achievements').hide();
     // show #hero-list
     $('#hero-list').show();
 
@@ -233,7 +237,7 @@
     // show #stats
     $('#hero-stats').show();
     // show #hero-achievements
-    $('#hero-achivements').show();
+    $('#hero-achievements').show();
     // show
     $('#hero-list').show();
 
@@ -253,7 +257,8 @@
       e.preventDefault();
       localStorage.heroName = $(this).text();
       console.log('this is in lc' + localStorage.heroName);
-      Hero.outputHero(localStorage.heroName,heroView.renderHero);
+      // Hero.outputHero(localStorage.heroName,heroView.renderHero);
+      heroView.heroPage();
     });
   }
 

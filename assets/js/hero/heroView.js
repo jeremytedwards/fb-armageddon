@@ -129,6 +129,7 @@
   }
 
   heroView.initHeroCreateButton = function() {
+    $('#create-btn').off('click');
     $('#create-btn').one('click', function(e) {
       e.preventDefault();
 
